@@ -716,7 +716,7 @@ header a {
   width: calc((100vw - 60px));
   margin: 0 auto 30px;
   height: calc((100vw - 60px) / 1.5);
-  background-color: black;
+  background-color: white;
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -896,7 +896,7 @@ footer p {
   /* Style adjustments for viewports that meet the condition */
   /* line 332, ../wp-content/themes/clean-portfolio/sass/main.scss */
   html {
-    background-color: black;
+    background-color: white;
   }
 
   /* line 335, ../wp-content/themes/clean-portfolio/sass/main.scss */
