@@ -10,8 +10,7 @@
         <meta property="og:url" content="http://www.andrewthomashill.co.uk/">
         <meta property="og:site_name" content="Andrew Hill">
         <meta itemprop=ig:description" property="og:description" content="Developer, sometimes designer, music weirdo">
-        <link rel="stylesheet" href="/theme/stylesheets/main.css">
-        <script src="/theme/js/vendor/modernizr-2.8.3.min.js"></script>
+        <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() ?>/stylesheets/main.css">
         <script src="https://use.typekit.net/lbu3vge.js"></script>
         <script>try{Typekit.load({ async: true });}catch(e){}</script>
     </head>
@@ -70,18 +69,15 @@
         <footer>
             <p>© <?php echo date('Y'); ?> Andrew Hill</p>
         </footer>
-        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
-
         <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='https://www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-50941203-1', 'auto');
+          ga('send', 'pageview');
+
         </script>
     </body>
 </html>
