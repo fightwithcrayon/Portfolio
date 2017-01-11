@@ -10,14 +10,14 @@
         <meta property="og:url" content="http://www.andrewthomashill.co.uk/">
         <meta property="og:site_name" content="Andrew Hill">
         <meta itemprop=ig:description" property="og:description" content="Developer, sometimes designer, music weirdo">
-        <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() ?>/stylesheets/main.css?v=1.1">
+        <link rel="stylesheet" href="/stylesheets/main.css?v=1.1">
         <script src="https://use.typekit.net/lbu3vge.js"></script>
         <script>try{Typekit.load({ async: true });}catch(e){}</script>
     </head>
     <body class="home">
         <header>
             <h1>Andrew Hill</h1>
-            <p>Freelance developer and strategic comms professional. Also run one of the UK's leading new music websites.</p>
+            <p>Freelance developer and strategic comms professional. Also run one of the UK's <a href="http://www.crackintheroad.com/">leading new music websites</a>.</p>
             <p><a href="mailto:contact@andrewthomashill.co.uk">contact@andrewthomashill.co.uk</a></p>
         </header>
         <main>
@@ -77,7 +77,6 @@
 
           ga('create', 'UA-50941203-1', 'auto');
           ga('send', 'pageview');
-
         </script>
     </body>
 </html>
