@@ -145,6 +145,19 @@ body {
     background-color:$bg;
     letter-spacing: 0.25px;
 }
+body > * {
+    transition: opacity 0.6s;
+    opacity:1;
+}
+
+.wf-loading body > * {
+    opacity:0;
+    transition: opacity 0.6s;
+}
+.wf-active body > *, .wf-inactive body > * {
+    opacity:1;
+    transition: opacity 0.6s;
+}   
 a {
     color: $primary;
     text-decoration: none;

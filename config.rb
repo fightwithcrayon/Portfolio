@@ -1,12 +1,29 @@
 require 'compass/import-once/activate'
 # Require any additional compass plugins here.
+require 'autoprefixer-rails'
 
+on_stylesheet_saved do |file|
+  css = File.read(file)
+  map = file + '.map'
+
+  if File.exists? map
+    result = AutoprefixerRails.process(css,
+      from: file,
+      to:   file,
+      map:  { prev: File.read(map), inline: false })
+    File.open(file, 'w') { |io| io << result.css }
+    File.open(map,  'w') { |io| io << result.map }
+  else
+    File.open(file, 'w') { |io| io << AutoprefixerRails.process(css) }
+  end
+end
 # Set this to the root of your project when deployed:
 http_path = "/"
 css_dir = "stylesheets"
-sass_dir = "sass"
-images_dir = "images"
-javascripts_dir = "javascripts"
+sass_dir = "/wp-content/themes/clean-portfolio/sass"
+images_dir = "uploads"
+javascripts_dir = "/wp-content/themes/clean-portfolio/js"
+output_style = :compressed
 
 # You can select your preferred output style here (can be overridden via the command line):
 # output_style = :expanded or :nested or :compact or :compressed
