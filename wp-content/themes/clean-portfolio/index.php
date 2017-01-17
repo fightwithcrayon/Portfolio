@@ -9,6 +9,7 @@
         <meta property="og:title" content="Andrew Hill">
         <meta property="og:url" content="http://www.andrewthomashill.co.uk/">
         <meta property="og:site_name" content="Andrew Hill">
+        <meta property="og:image" content="/img/meta.png">
         <meta itemprop=ig:description" property="og:description" content="Developer, sometimes designer, music weirdo">
         <link rel="stylesheet" href="/stylesheets/main.css?v=1.1">
         <script src="https://use.typekit.net/lbu3vge.js"></script>
@@ -17,7 +18,7 @@
     <body class="home">
         <header>
             <h1>Andrew Hill</h1>
-            <p>Freelance developer and strategic comms professional. Also run one of the UK's <a href="http://www.crackintheroad.com/">leading new music websites</a>.</p>
+            <p>Freelance developer and strategic comms professional. I also run one of the UK's <a href="http://www.crackintheroad.com/">leading new music websites</a>.</p>
             <p><a href="mailto:contact@andrewthomashill.co.uk">contact@andrewthomashill.co.uk</a></p>
         </header>
         <main>
