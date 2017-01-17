@@ -10,6 +10,9 @@
         <meta property="og:url" content="http://www.andrewthomashill.co.uk/">
         <meta property="og:site_name" content="Andrew Hill">
         <meta property="og:image" content="http://andrewthomashill.co.uk/img/meta.png">
+        <meta property="og:image:width" content="1204">
+        <meta property="og:image:height" content="798">
+        <meta property="og:image:type" content="image/png">
         <meta itemprop=ig:description" property="og:description" content="Developer, sometimes designer, music weirdo">
         <link rel="stylesheet" href="/stylesheets/main.css?v=1.1">
         <script src="https://use.typekit.net/lbu3vge.js"></script>
