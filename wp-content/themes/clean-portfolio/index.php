@@ -14,15 +14,14 @@
         <meta property="og:image:height" content="798">
         <meta property="og:image:type" content="image/png">
         <meta itemprop=ig:description" property="og:description" content="Developer, sometimes designer, music weirdo">
-        <link rel="stylesheet" href="/stylesheets/main.css?v=1.1">
+        <link rel="stylesheet" href="/stylesheets/main.css?v=1.2">
         <script src="https://use.typekit.net/lbu3vge.js"></script>
         <script>try{Typekit.load({ async: true });}catch(e){}</script>
     </head>
     <body class="home">
         <header>
             <h1>Andrew Hill</h1>
-            <p>Freelance developer and strategic comms professional. I also run one of the UK's <a href="http://www.crackintheroad.com/">leading new music websites</a>.</p>
-            <p><a href="mailto:contact@andrewthomashill.co.uk">contact@andrewthomashill.co.uk</a></p>
+            <p>Freelance developer and strategic comms professional. <br />I also run one of the UK's <a href="http://www.crackintheroad.com/">leading new music websites</a>.</p>
         </header>
         <main>
             <ul class="work">

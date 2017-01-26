@@ -123,10 +123,10 @@ small, .font_small {font-size: 0.667em;}
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-$primary: #FF3B6E;
-$bg: rgb(251, 238, 226);
+$primary: #2A9988;
+$bg: #F7F6F5;
 $trim: white;
-$textcolor: #333333;
+$textcolor: #E65034;
 $standmargin: 15px;
 
 * {
@@ -170,11 +170,19 @@ h1, h2, h3, h4, h5 {
 header {
     width:calc(100vw - 60px);
     padding:60px 30px;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     h1 {
         color:$primary;
     }
     a {
         border-bottom:2px solid $primary;
+    }
+    p {
+        font-size:1.65em;
+        line-height:2;
     }
 }
 
@@ -187,7 +195,7 @@ header {
         background-color: $trim;
         position: relative;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         justify-content: center;
         align-items: center;
         img {
@@ -335,13 +343,16 @@ footer {
     body {
         margin:15px;
     }
+    header {  
+        text-align:center;
+    }
     .work {
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
-        margin-left:30px;
+        margin:0;
         figure {
             $number : 2;
             $width : "(100vw - (60px + (30px * #{$number})) )";
@@ -362,10 +373,9 @@ footer {
 }
 
 @media only screen and (min-width: 960px) {
-    /* Style adjustments for viewports that meet the condition */
     .work {
         figure {
-            $number : 3;
+            $number : 2;
             $width : "(100vw - (60px + (30px * #{$number})) )";
             width: calc(#{$width} / #{$number});
             height: calc((#{$width} / #{$number}) / 1.5);
@@ -373,15 +383,15 @@ footer {
     }
 }
 @media only screen and (min-width: 1280px) {
-    /* Style adjustments for viewports that meet the condition */
     header, main, footer {
         width: 1200px;
         margin-left:auto;
         margin-right: auto;
     }
     .work figure {
-        width:360px;
-        height:240px;
+        $width : 540px;
+        width:$width;
+        height: calc(#{$width} / 1.5);
     }
 }
 
