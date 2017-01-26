@@ -70,7 +70,7 @@
             </ul>
         </main>
         <footer>
-            <p>© <?php echo date('Y'); ?> Andrew Hill</p>
+            <p>© <?php echo date('Y'); ?></p>
         </footer>
         <script>
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
