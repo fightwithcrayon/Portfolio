@@ -7,9 +7,9 @@
         <meta name="description" content="Developer, sometimes designer, music weirdo">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta property="og:title" content="Andrew Hill">
-        <meta property="og:url" content="http://www.andrewthomashill.co.uk/">
+        <meta property="og:url" content="https://www.andrewthomashill.co.uk/">
         <meta property="og:site_name" content="Andrew Hill">
-        <meta property="og:image" content="http://andrewthomashill.co.uk/img/meta.png">
+        <meta property="og:image" content="https://andrewthomashill.co.uk/img/meta.png">
         <meta property="og:image:width" content="1204">
         <meta property="og:image:height" content="798">
         <meta property="og:image:type" content="image/png">
@@ -21,7 +21,7 @@
     <body class="home">
         <header>
             <h1>Andrew Hill</h1>
-            <p>Freelance developer and strategic comms professional. <br />I also run one of the UK's <a href="http://www.crackintheroad.com/">leading new music websites</a>.</p>
+            <p>Freelance developer and strategic comms professional. <br />I also run one of the UK's <a href="https://www.crackintheroad.com/">leading new music websites</a>.</p>
         </header>
         <main>
             <ul class="work">
