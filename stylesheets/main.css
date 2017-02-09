@@ -747,71 +747,89 @@ footer {
   header h1 {
     font-size: 5.063em;
     text-transform: uppercase; }
-  .work > a {
-    pointer-events: none; }
-  .work figure {
-    width: 100vw;
-    height: calc(66vw / 1.5);
-    margin: 0;
-    text-align: right; }
-    .work figure .imagebox, .work figure figcaption {
-      width: 66vw;
+  .work {
+    background-color: #F7F6F5; }
+    .work > a {
+      pointer-events: none; }
+    .work figure {
+      width: 100vw;
       height: calc(66vw / 1.5);
-      position: relative; }
-    .work figure figcaption {
-      width: calc(100vw - 66vw); }
-    .work figure .imagebox {
-      background-color: #E65034;
-      order: 2; }
-      .work figure .imagebox img {
-        max-height: initial;
-        max-width: initial; }
-        .work figure .imagebox img:not(:nth-of-type(1)) {
-          display: block; }
-        .work figure .imagebox img.three:nth-of-type(1) {
-          animation: threeimage1 25s linear infinite; }
-        .work figure .imagebox img.three:nth-of-type(2) {
-          animation: threeimage2 25s linear infinite; }
-        .work figure .imagebox img.three:nth-of-type(3) {
-          animation: threeimage3 25s linear infinite; }
-        .work figure .imagebox img.four:nth-of-type(1) {
-          animation: fourimage1 25s linear infinite; }
-        .work figure .imagebox img.four:nth-of-type(2) {
-          animation: fourimage2 25s linear infinite; }
-        .work figure .imagebox img.four:nth-of-type(3) {
-          animation: fourimage3 25s linear infinite; }
-        .work figure .imagebox img.four:nth-of-type(4) {
-          animation: fourimage4 25s linear infinite; }
-        .work figure .imagebox img.fixed {
-          animation: none; }
-    .work figure figcaption {
-      background-color: #F7F6F5;
-      opacity: 1;
-      order: 1;
-      color: inherit;
-      align-items: flex-end;
-      padding: 30px; }
-      .work figure figcaption h2 {
-        font-size: 2.25em;
-        color: #E65034; }
-      .work figure figcaption p {
-        color: #2A9988; }
-      .work figure figcaption a {
-        color: #E65034; }
-      .work figure figcaption .tags {
-        order: 3; }
-      .work figure figcaption .links {
+      margin: 0 0 60px 0;
+      text-align: right; }
+      .work figure .imagebox, .work figure figcaption {
+        width: 66vw;
+        height: calc(66vw / 1.5);
+        position: relative; }
+      .work figure figcaption {
+        width: calc(100vw - 66vw); }
+      .work figure .imagebox {
+        background-color: #E65034;
         order: 2; }
-      .work figure figcaption .excerpt {
-        max-width: 66%;
-        display: block; }
-    .work figure:nth-of-type(even) {
-      text-align: left; }
-      .work figure:nth-of-type(even) figcaption {
-        order: 2;
-        align-items: flex-start; }
-      .work figure:nth-of-type(even) .imagebox {
-        order: 1; } }
+        .work figure .imagebox img {
+          max-height: initial;
+          max-width: initial; }
+          .work figure .imagebox img:not(:nth-of-type(1)) {
+            display: block; }
+          .work figure .imagebox img.three:nth-of-type(1) {
+            animation: threeimage1 25s linear infinite;
+            animation-play-state: paused;
+            z-index: 3; }
+          .work figure .imagebox img.three:nth-of-type(2) {
+            animation: threeimage2 25s linear infinite;
+            animation-play-state: paused;
+            z-index: 2; }
+          .work figure .imagebox img.three:nth-of-type(3) {
+            animation: threeimage3 25s linear infinite;
+            animation-play-state: paused;
+            z-index: 1; }
+          .work figure .imagebox img.four:nth-of-type(1) {
+            animation: fourimage1 25s linear infinite;
+            animation-play-state: paused;
+            z-index: 4; }
+          .work figure .imagebox img.four:nth-of-type(2) {
+            animation: fourimage2 25s linear infinite;
+            animation-play-state: paused;
+            z-index: 3; }
+          .work figure .imagebox img.four:nth-of-type(3) {
+            animation: fourimage3 25s linear infinite;
+            animation-play-state: paused;
+            z-index: 2; }
+          .work figure .imagebox img.four:nth-of-type(4) {
+            animation: fourimage4 25s linear infinite;
+            animation-play-state: paused;
+            z-index: 1; }
+          .work figure .imagebox img.fixed {
+            animation: none; }
+        .work figure .imagebox:hover img {
+          animation-play-state: running !important; }
+      .work figure figcaption {
+        background-color: #F7F6F5;
+        opacity: 1;
+        order: 1;
+        color: inherit;
+        align-items: flex-end;
+        padding: 30px; }
+        .work figure figcaption h2 {
+          font-size: 2.25em;
+          color: #E65034; }
+        .work figure figcaption p {
+          color: #2A9988; }
+        .work figure figcaption a {
+          color: #E65034; }
+        .work figure figcaption .tags {
+          order: 3; }
+        .work figure figcaption .links {
+          order: 2; }
+        .work figure figcaption .excerpt {
+          max-width: 66%;
+          display: block; }
+      .work figure:nth-of-type(even) {
+        text-align: left; }
+        .work figure:nth-of-type(even) figcaption {
+          order: 2;
+          align-items: flex-start; }
+        .work figure:nth-of-type(even) .imagebox {
+          order: 1; } }
 
 @media print, (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 1.25dppx), (min-resolution: 120dpi) {
   /* Style adjustments for high resolution devices */ }

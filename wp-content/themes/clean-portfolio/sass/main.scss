@@ -434,6 +434,7 @@ footer {
             }
     }
     .work {
+        background-color: $bg;
         > a {
             pointer-events: none;
         }
@@ -441,7 +442,7 @@ footer {
             $width : 66vw;
             width: 100vw;
             height: calc(#{$width} / 1.5);
-            margin:0;
+            margin:0 0 (4 * $standmargin) 0;
             text-align:right;
             .imagebox, figcaption {
                 width: $width;
@@ -461,29 +462,46 @@ footer {
                         display:block;
                     }
                     &.three:nth-of-type(1){
-                        animation: threeimage1 25s linear infinite;
+                        animation: threeimage1 10s linear infinite;
+                        animation-play-state:paused;
+                        z-index:3;
                     }
                     &.three:nth-of-type(2){
-                        animation: threeimage2 25s linear infinite;
+                        animation: threeimage2 10s linear infinite;
+                        animation-play-state:paused;
+                        z-index:2;
                     }
                     &.three:nth-of-type(3){
-                        animation: threeimage3 25s linear infinite;
+                        animation: threeimage3 10s linear infinite;
+                        animation-play-state:paused;
+                        z-index:1;
                     }
                     &.four:nth-of-type(1){
-                        animation: fourimage1 25s linear infinite;
+                        animation: fourimage1 10s linear infinite;
+                        animation-play-state:paused;
+                        z-index:4;
                     }
                     &.four:nth-of-type(2){
-                        animation: fourimage2 25s linear infinite;
+                        animation: fourimage2 13s linear infinite;
+                        animation-play-state:paused;
+                        z-index:3;
                     }
                     &.four:nth-of-type(3){
-                        animation: fourimage3 25s linear infinite;
+                        animation: fourimage3 13s linear infinite;
+                        animation-play-state:paused;
+                        z-index:2;
                     }
                     &.four:nth-of-type(4){
-                        animation: fourimage4 25s linear infinite;
+                        animation: fourimage4 13s linear infinite;
+                        animation-play-state:paused;
+                        z-index:1;
                     }
                     &.fixed {
                         animation: none;
                     }
+                }
+                &:hover img {
+                    animation-play-state:running !important;
                 }
             }
             figcaption {

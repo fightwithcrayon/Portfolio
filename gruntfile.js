@@ -127,5 +127,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-babel');
   // Register the default tasks.
   grunt.registerTask('default', ['browserSync', 'watch', 'notify']);
-  grunt.registerTask('prod', ['sass:dist', 'autoprefixer', 'cssmin', 'jshint','babel','uglify:scripts', 'notify:successProduction']);
+  grunt.registerTask('prod', ['sass:dist', 'autoprefixer', 'cssmin', 'notify:successProduction']);
 };

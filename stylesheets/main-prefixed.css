@@ -785,87 +785,113 @@ footer {
   header h1 {
     font-size: 5.063em;
     text-transform: uppercase; }
-  .work > a {
-    pointer-events: none; }
-  .work figure {
-    width: 100vw;
-    height: calc(66vw / 1.5);
-    margin: 0;
-    text-align: right; }
-    .work figure .imagebox, .work figure figcaption {
-      width: 66vw;
+  .work {
+    background-color: #F7F6F5; }
+    .work > a {
+      pointer-events: none; }
+    .work figure {
+      width: 100vw;
       height: calc(66vw / 1.5);
-      position: relative; }
-    .work figure figcaption {
-      width: calc(100vw - 66vw); }
-    .work figure .imagebox {
-      background-color: #E65034;
-      -webkit-box-ordinal-group: 3;
-              order: 2; }
-      .work figure .imagebox img {
-        max-height: initial;
-        max-width: initial; }
-        .work figure .imagebox img:not(:nth-of-type(1)) {
-          display: block; }
-        .work figure .imagebox img.three:nth-of-type(1) {
-          -webkit-animation: threeimage1 25s linear infinite;
-                  animation: threeimage1 25s linear infinite; }
-        .work figure .imagebox img.three:nth-of-type(2) {
-          -webkit-animation: threeimage2 25s linear infinite;
-                  animation: threeimage2 25s linear infinite; }
-        .work figure .imagebox img.three:nth-of-type(3) {
-          -webkit-animation: threeimage3 25s linear infinite;
-                  animation: threeimage3 25s linear infinite; }
-        .work figure .imagebox img.four:nth-of-type(1) {
-          -webkit-animation: fourimage1 25s linear infinite;
-                  animation: fourimage1 25s linear infinite; }
-        .work figure .imagebox img.four:nth-of-type(2) {
-          -webkit-animation: fourimage2 25s linear infinite;
-                  animation: fourimage2 25s linear infinite; }
-        .work figure .imagebox img.four:nth-of-type(3) {
-          -webkit-animation: fourimage3 25s linear infinite;
-                  animation: fourimage3 25s linear infinite; }
-        .work figure .imagebox img.four:nth-of-type(4) {
-          -webkit-animation: fourimage4 25s linear infinite;
-                  animation: fourimage4 25s linear infinite; }
-        .work figure .imagebox img.fixed {
-          -webkit-animation: none;
-                  animation: none; }
-    .work figure figcaption {
-      background-color: #F7F6F5;
-      opacity: 1;
-      -webkit-box-ordinal-group: 2;
-              order: 1;
-      color: inherit;
-      -webkit-box-align: end;
-              align-items: flex-end;
-      padding: 30px; }
-      .work figure figcaption h2 {
-        font-size: 2.25em;
-        color: #E65034; }
-      .work figure figcaption p {
-        color: #2A9988; }
-      .work figure figcaption a {
-        color: #E65034; }
-      .work figure figcaption .tags {
-        -webkit-box-ordinal-group: 4;
-                order: 3; }
-      .work figure figcaption .links {
+      margin: 0 0 60px 0;
+      text-align: right; }
+      .work figure .imagebox, .work figure figcaption {
+        width: 66vw;
+        height: calc(66vw / 1.5);
+        position: relative; }
+      .work figure figcaption {
+        width: calc(100vw - 66vw); }
+      .work figure .imagebox {
+        background-color: #E65034;
         -webkit-box-ordinal-group: 3;
                 order: 2; }
-      .work figure figcaption .excerpt {
-        max-width: 66%;
-        display: block; }
-    .work figure:nth-of-type(even) {
-      text-align: left; }
-      .work figure:nth-of-type(even) figcaption {
-        -webkit-box-ordinal-group: 3;
-                order: 2;
-        -webkit-box-align: start;
-                align-items: flex-start; }
-      .work figure:nth-of-type(even) .imagebox {
+        .work figure .imagebox img {
+          max-height: initial;
+          max-width: initial; }
+          .work figure .imagebox img:not(:nth-of-type(1)) {
+            display: block; }
+          .work figure .imagebox img.three:nth-of-type(1) {
+            -webkit-animation: threeimage1 25s linear infinite;
+                    animation: threeimage1 25s linear infinite;
+            -webkit-animation-play-state: paused;
+                    animation-play-state: paused;
+            z-index: 3; }
+          .work figure .imagebox img.three:nth-of-type(2) {
+            -webkit-animation: threeimage2 25s linear infinite;
+                    animation: threeimage2 25s linear infinite;
+            -webkit-animation-play-state: paused;
+                    animation-play-state: paused;
+            z-index: 2; }
+          .work figure .imagebox img.three:nth-of-type(3) {
+            -webkit-animation: threeimage3 25s linear infinite;
+                    animation: threeimage3 25s linear infinite;
+            -webkit-animation-play-state: paused;
+                    animation-play-state: paused;
+            z-index: 1; }
+          .work figure .imagebox img.four:nth-of-type(1) {
+            -webkit-animation: fourimage1 25s linear infinite;
+                    animation: fourimage1 25s linear infinite;
+            -webkit-animation-play-state: paused;
+                    animation-play-state: paused;
+            z-index: 4; }
+          .work figure .imagebox img.four:nth-of-type(2) {
+            -webkit-animation: fourimage2 25s linear infinite;
+                    animation: fourimage2 25s linear infinite;
+            -webkit-animation-play-state: paused;
+                    animation-play-state: paused;
+            z-index: 3; }
+          .work figure .imagebox img.four:nth-of-type(3) {
+            -webkit-animation: fourimage3 25s linear infinite;
+                    animation: fourimage3 25s linear infinite;
+            -webkit-animation-play-state: paused;
+                    animation-play-state: paused;
+            z-index: 2; }
+          .work figure .imagebox img.four:nth-of-type(4) {
+            -webkit-animation: fourimage4 25s linear infinite;
+                    animation: fourimage4 25s linear infinite;
+            -webkit-animation-play-state: paused;
+                    animation-play-state: paused;
+            z-index: 1; }
+          .work figure .imagebox img.fixed {
+            -webkit-animation: none;
+                    animation: none; }
+        .work figure .imagebox:hover img {
+          -webkit-animation-play-state: running !important;
+                  animation-play-state: running !important; }
+      .work figure figcaption {
+        background-color: #F7F6F5;
+        opacity: 1;
         -webkit-box-ordinal-group: 2;
-                order: 1; } }
+                order: 1;
+        color: inherit;
+        -webkit-box-align: end;
+                align-items: flex-end;
+        padding: 30px; }
+        .work figure figcaption h2 {
+          font-size: 2.25em;
+          color: #E65034; }
+        .work figure figcaption p {
+          color: #2A9988; }
+        .work figure figcaption a {
+          color: #E65034; }
+        .work figure figcaption .tags {
+          -webkit-box-ordinal-group: 4;
+                  order: 3; }
+        .work figure figcaption .links {
+          -webkit-box-ordinal-group: 3;
+                  order: 2; }
+        .work figure figcaption .excerpt {
+          max-width: 66%;
+          display: block; }
+      .work figure:nth-of-type(even) {
+        text-align: left; }
+        .work figure:nth-of-type(even) figcaption {
+          -webkit-box-ordinal-group: 3;
+                  order: 2;
+          -webkit-box-align: start;
+                  align-items: flex-start; }
+        .work figure:nth-of-type(even) .imagebox {
+          -webkit-box-ordinal-group: 2;
+                  order: 1; } }
 
 @media print, (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 1.25dppx), (min-resolution: 120dpi) {
   /* Style adjustments for high resolution devices */ }
