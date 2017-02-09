@@ -14,13 +14,13 @@
         <meta property="og:image:height" content="798">
         <meta property="og:image:type" content="image/png">
         <meta itemprop=ig:description" property="og:description" content="Developer, sometimes designer, music weirdo">
-        <link rel="stylesheet" href="/stylesheets/main.css?v=1.2">
+        <link rel="stylesheet" href="/stylesheets/main-min.css?v=1.2">
         <script src="https://use.typekit.net/lbu3vge.js"></script>
         <script>try{Typekit.load({ async: true });}catch(e){}</script>
     </head>
     <body class="home">
         <header>
-            <h1>Andrew Hill</h1>
+            <h1>Andrew Thomas Hill</h1>
             <p>Freelance developer and strategic comms professional. <br />I also run one of the UK's <a href="https://www.crackintheroad.com/">leading new music websites</a>.</p>
         </header>
         <main>
@@ -28,16 +28,48 @@
                 <?php
                     if(have_posts()): while(have_posts()): the_post(); 
                 ?>
-                <a href="<?php echo get_post_meta(get_the_ID(), 'link', true); ?>">
                     <figure>
-                        <img srcset="
+                        <div class="imagebox">
                         <?php 
-                            $attachment = get_post_thumbnail_id();
-                            echo wp_get_attachment_image_srcset($attachment, large); ?>
-                           " />
+                            $attachments = explode(",", get_post_meta(get_the_ID(), 'images', true));
+                            if(count($attachments) > 2){
+                                if(count($attachments) == 3){
+                                    foreach($attachments as $attachment){
+                                        echo '<img srcset="' . wp_get_attachment_image_srcset($attachment, large) . '" class="three" />';
+                                    }
+                                } 
+                                else {
+                                    foreach($attachments as $attachment){
+                                        echo '<img srcset="' . wp_get_attachment_image_srcset($attachment, large) . '" class="four"/>';
+                                    }    
+                                }
+                            } else {
+                                echo '<img srcset="' . wp_get_attachment_image_srcset(get_post_thumbnail_id(), large) . '" class="fixed" />';
+                            } ?>
+                        </div>
                         <figcaption>
                             <h2><?php the_title(); ?></h2>
-                            <p><?php    
+                            <p class="excerpt"><?php echo get_the_excerpt(); ?></p>
+                            <?php
+                                $links = array(
+                                    'link' => get_post_meta(get_the_ID(), 'link', true), 
+                                    'source' => get_post_meta(get_the_ID(), 'source', true)
+                                );
+                                if(count($links) > 0){
+                                    echo '<p class="links">'; 
+                                    if($links['link'] != null){
+                                        echo '<a href="'.$links['link'].'">Link</a>';
+                                    }
+                                    if($links['link'] != null && $links['source'] != null){
+                                        echo ' / '; 
+                                    }
+                                    if($links['source'] != null){
+                                        echo '<a href="'.$links['source'].'">Source</a>';
+                                    }
+                                    echo '</p>'; 
+                                }
+                            ?>
+                            <p class="tags"><?php    
                                     $tags = get_the_tags();
                                     $count = count($tags);
                                     $i=1;
@@ -53,7 +85,7 @@
                                         } 
                                     }
                                 ?></p>
-                            <p><?php 
+                            <p class="year"><?php 
                                 $date = get_post_meta(get_the_ID(), 'date', true);
                                 if($date == null) { 
                                     the_date('Y');
@@ -63,7 +95,6 @@
                             </p>
                         </figcaption>
                     </figure>
-                </a>
                 <?php 
                     endwhile; endif;
                 ?>

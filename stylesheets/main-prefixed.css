@@ -524,16 +524,19 @@ body {
   letter-spacing: 0.25px; }
 
 body > * {
-  transition: opacity 0.6s;
+  -webkit-transition: opacity 0.6s;
+          transition: opacity 0.6s;
   opacity: 1; }
 
 .wf-loading body > * {
   opacity: 0;
-  transition: opacity 0.6s; }
+  -webkit-transition: opacity 0.6s;
+          transition: opacity 0.6s; }
 
 .wf-active body > *, .wf-inactive body > * {
   opacity: 1;
-  transition: opacity 0.6s; }
+  -webkit-transition: opacity 0.6s;
+          transition: opacity 0.6s; }
 
 a {
   color: #E65034;
@@ -547,9 +550,13 @@ header {
   width: calc(100vw - (15px * 4));
   padding: 60px 30px;
   min-height: 50vh;
+  display: -webkit-box;
   display: flex;
-  flex-direction: column;
-  justify-content: center; }
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-pack: center;
+          justify-content: center; }
   header h1 {
     color: #E65034;
     max-width: 50%; }
@@ -565,10 +572,15 @@ header {
   height: calc((100vw - 60px) / 1.5);
   background-color: white;
   position: relative;
+  display: -webkit-box;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
   text-align: center; }
   .work figure .imagebox {
     height: 100%;
@@ -579,27 +591,35 @@ header {
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
       height: 100%; }
     .work figure .imagebox img:not(:nth-of-type(1)) {
       display: none; }
   .work figure figcaption {
+    display: -webkit-box;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-direction: column;
+    -webkit-box-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+            align-items: center;
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
     opacity: 0;
-    transition: opacity 0.3s ease-out;
+    -webkit-transition: opacity 0.3s ease-out;
+            transition: opacity 0.3s ease-out;
     background-color: #E65034;
     color: #F7F6F5;
     -webkit-font-smoothing: antialiased; }
     .work figure figcaption * {
-      order: 1; }
+      -webkit-box-ordinal-group: 2;
+              order: 1; }
     .work figure figcaption h2 {
       color: #F7F6F5; }
     .work figure figcaption a {
@@ -610,11 +630,14 @@ header {
     .work figure figcaption .excerpt {
       display: none; }
     .work figure figcaption .tags {
-      order: 2; }
+      -webkit-box-ordinal-group: 3;
+              order: 2; }
     .work figure figcaption .links {
-      order: 3; }
+      -webkit-box-ordinal-group: 4;
+              order: 3; }
     .work figure figcaption .year {
-      order: 4; }
+      -webkit-box-ordinal-group: 5;
+              order: 4; }
     .work figure figcaption:hover {
       opacity: 1; }
 
@@ -625,6 +648,16 @@ footer {
     text-transform: uppercase;
     letter-spacing: 2px;
     color: #f8fdfc; }
+
+@-webkit-keyframes bgFade {
+  0% {
+    background-color: #f7baba; }
+  35% {
+    background-color: #f1daa1; }
+  70% {
+    background-color: #b5c8e4; }
+  100% {
+    background-color: #f7baba; } }
 
 @keyframes bgFade {
   0% {
@@ -714,10 +747,15 @@ footer {
     header h1 {
       max-width: 100%; }
   .work {
+    display: -webkit-box;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+            flex-direction: row;
+    -webkit-box-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+            align-items: center;
     flex-wrap: wrap;
     margin: 0; }
     .work figure {
@@ -762,34 +800,45 @@ footer {
       width: calc(100vw - 66vw); }
     .work figure .imagebox {
       background-color: #E65034;
-      order: 2; }
+      -webkit-box-ordinal-group: 3;
+              order: 2; }
       .work figure .imagebox img {
         max-height: initial;
         max-width: initial; }
         .work figure .imagebox img:not(:nth-of-type(1)) {
           display: block; }
         .work figure .imagebox img.three:nth-of-type(1) {
-          animation: threeimage1 25s linear infinite; }
+          -webkit-animation: threeimage1 25s linear infinite;
+                  animation: threeimage1 25s linear infinite; }
         .work figure .imagebox img.three:nth-of-type(2) {
-          animation: threeimage2 25s linear infinite; }
+          -webkit-animation: threeimage2 25s linear infinite;
+                  animation: threeimage2 25s linear infinite; }
         .work figure .imagebox img.three:nth-of-type(3) {
-          animation: threeimage3 25s linear infinite; }
+          -webkit-animation: threeimage3 25s linear infinite;
+                  animation: threeimage3 25s linear infinite; }
         .work figure .imagebox img.four:nth-of-type(1) {
-          animation: fourimage1 25s linear infinite; }
+          -webkit-animation: fourimage1 25s linear infinite;
+                  animation: fourimage1 25s linear infinite; }
         .work figure .imagebox img.four:nth-of-type(2) {
-          animation: fourimage2 25s linear infinite; }
+          -webkit-animation: fourimage2 25s linear infinite;
+                  animation: fourimage2 25s linear infinite; }
         .work figure .imagebox img.four:nth-of-type(3) {
-          animation: fourimage3 25s linear infinite; }
+          -webkit-animation: fourimage3 25s linear infinite;
+                  animation: fourimage3 25s linear infinite; }
         .work figure .imagebox img.four:nth-of-type(4) {
-          animation: fourimage4 25s linear infinite; }
+          -webkit-animation: fourimage4 25s linear infinite;
+                  animation: fourimage4 25s linear infinite; }
         .work figure .imagebox img.fixed {
-          animation: none; }
+          -webkit-animation: none;
+                  animation: none; }
     .work figure figcaption {
       background-color: #F7F6F5;
       opacity: 1;
-      order: 1;
+      -webkit-box-ordinal-group: 2;
+              order: 1;
       color: inherit;
-      align-items: flex-end;
+      -webkit-box-align: end;
+              align-items: flex-end;
       padding: 30px; }
       .work figure figcaption h2 {
         font-size: 2.25em;
@@ -799,22 +848,47 @@ footer {
       .work figure figcaption a {
         color: #E65034; }
       .work figure figcaption .tags {
-        order: 3; }
+        -webkit-box-ordinal-group: 4;
+                order: 3; }
       .work figure figcaption .links {
-        order: 2; }
+        -webkit-box-ordinal-group: 3;
+                order: 2; }
       .work figure figcaption .excerpt {
         max-width: 66%;
         display: block; }
     .work figure:nth-of-type(even) {
       text-align: left; }
       .work figure:nth-of-type(even) figcaption {
-        order: 2;
-        align-items: flex-start; }
+        -webkit-box-ordinal-group: 3;
+                order: 2;
+        -webkit-box-align: start;
+                align-items: flex-start; }
       .work figure:nth-of-type(even) .imagebox {
-        order: 1; } }
+        -webkit-box-ordinal-group: 2;
+                order: 1; } }
 
 @media print, (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 1.25dppx), (min-resolution: 120dpi) {
   /* Style adjustments for high resolution devices */ }
+
+@-webkit-keyframes fourimage1 {
+  0% {
+    opacity: 1; }
+  21% {
+    opacity: 1; }
+  25% {
+    opacity: 0; }
+  46% {
+    opacity: 0; }
+  50% {
+    opacity: 0; }
+  71% {
+    opacity: 0; }
+  75% {
+    opacity: 0; }
+  96% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
 
 @keyframes fourimage1 {
   0% {
@@ -836,6 +910,26 @@ footer {
   100% {
     opacity: 1; } }
 
+@-webkit-keyframes fourimage2 {
+  0% {
+    opacity: 0; }
+  21% {
+    opacity: 0; }
+  25% {
+    opacity: 1; }
+  46% {
+    opacity: 1; }
+  50% {
+    opacity: 0; }
+  71% {
+    opacity: 0; }
+  75% {
+    opacity: 0; }
+  96% {
+    opacity: 0; }
+  100% {
+    opacity: 0; } }
+
 @keyframes fourimage2 {
   0% {
     opacity: 0; }
@@ -849,6 +943,26 @@ footer {
     opacity: 0; }
   71% {
     opacity: 0; }
+  75% {
+    opacity: 0; }
+  96% {
+    opacity: 0; }
+  100% {
+    opacity: 0; } }
+
+@-webkit-keyframes fourimage3 {
+  0% {
+    opacity: 0; }
+  21% {
+    opacity: 0; }
+  25% {
+    opacity: 0; }
+  46% {
+    opacity: 0; }
+  50% {
+    opacity: 1; }
+  71% {
+    opacity: 1; }
   75% {
     opacity: 0; }
   96% {
@@ -876,6 +990,26 @@ footer {
   100% {
     opacity: 0; } }
 
+@-webkit-keyframes fourimage4 {
+  0% {
+    opacity: 0; }
+  21% {
+    opacity: 0; }
+  25% {
+    opacity: 0; }
+  46% {
+    opacity: 0; }
+  50% {
+    opacity: 0; }
+  71% {
+    opacity: 0; }
+  75% {
+    opacity: 1; }
+  96% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
 @keyframes fourimage4 {
   0% {
     opacity: 0; }
@@ -896,6 +1030,22 @@ footer {
   100% {
     opacity: 0; } }
 
+@-webkit-keyframes threeimage1 {
+  0% {
+    opacity: 1; }
+  30% {
+    opacity: 1; }
+  35% {
+    opacity: 0; }
+  63% {
+    opacity: 0; }
+  68% {
+    opacity: 0; }
+  96% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
 @keyframes threeimage1 {
   0% {
     opacity: 1; }
@@ -912,6 +1062,22 @@ footer {
   100% {
     opacity: 1; } }
 
+@-webkit-keyframes threeimage2 {
+  0% {
+    opacity: 0; }
+  30% {
+    opacity: 0; }
+  35% {
+    opacity: 1; }
+  63% {
+    opacity: 1; }
+  68% {
+    opacity: 0; }
+  96% {
+    opacity: 0; }
+  100% {
+    opacity: 0; } }
+
 @keyframes threeimage2 {
   0% {
     opacity: 0; }
@@ -925,6 +1091,22 @@ footer {
     opacity: 0; }
   96% {
     opacity: 0; }
+  100% {
+    opacity: 0; } }
+
+@-webkit-keyframes threeimage3 {
+  0% {
+    opacity: 0; }
+  30% {
+    opacity: 0; }
+  35% {
+    opacity: 0; }
+  63% {
+    opacity: 0; }
+  68% {
+    opacity: 1; }
+  96% {
+    opacity: 1; }
   100% {
     opacity: 0; } }
 

@@ -4,10 +4,13 @@
 /*
 !.gitignore
 !wp-content/
+!stylesheets
+!js
+!gruntfile.js
+!package.json
 
 wp-content/*
 !wp-content/themes/
-!wp-content/stylesheets/
 
 wp-content/themes/*
 !wp-content/themes/clean-portfolio
