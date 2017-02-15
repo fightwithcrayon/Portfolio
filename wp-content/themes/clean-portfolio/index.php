@@ -21,7 +21,7 @@
     <body class="home">
         <header>
             <h1>Andrew Thomas Hill</h1>
-            <p>Freelance developer and strategic comms professional. <br />I also run one of the UK's <a href="https://www.crackintheroad.com/">leading new music websites</a>.</p>
+            <p>Freelance website design and development consultant.</p><p>Also co-founded one of the UK's <a href="https://www.crackintheroad.com/">leading new music websites.</a></p>
         </header>
         <main>
             <ul class="work">

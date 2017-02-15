@@ -382,6 +382,12 @@ footer {
         h1 {
             max-width:100%;
         }
+        p:first-of-type {
+            margin-bottom:0;
+        }
+        p + p {
+            margin-top:0;
+        }
     }
     .work {
         display: flex;
@@ -455,6 +461,7 @@ footer {
             .imagebox {
                 background-color: $primary;
                 order:2;
+                cursor:pointer;
                 img {
                     max-height:initial;
                     max-width:initial;
@@ -477,7 +484,7 @@ footer {
                         z-index:1;
                     }
                     &.four:nth-of-type(1){
-                        animation: fourimage1 10s linear infinite;
+                        animation: fourimage1 13s linear infinite;
                         animation-play-state:paused;
                         z-index:4;
                     }

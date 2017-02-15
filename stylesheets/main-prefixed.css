@@ -746,6 +746,10 @@ footer {
     text-align: center; }
     header h1 {
       max-width: 100%; }
+    header p:first-of-type {
+      margin-bottom: 0; }
+    header p + p {
+      margin-top: 0; }
   .work {
     display: -webkit-box;
     display: flex;
@@ -803,51 +807,52 @@ footer {
       .work figure .imagebox {
         background-color: #E65034;
         -webkit-box-ordinal-group: 3;
-                order: 2; }
+                order: 2;
+        cursor: pointer; }
         .work figure .imagebox img {
           max-height: initial;
           max-width: initial; }
           .work figure .imagebox img:not(:nth-of-type(1)) {
             display: block; }
           .work figure .imagebox img.three:nth-of-type(1) {
-            -webkit-animation: threeimage1 25s linear infinite;
-                    animation: threeimage1 25s linear infinite;
+            -webkit-animation: threeimage1 10s linear infinite;
+                    animation: threeimage1 10s linear infinite;
             -webkit-animation-play-state: paused;
                     animation-play-state: paused;
             z-index: 3; }
           .work figure .imagebox img.three:nth-of-type(2) {
-            -webkit-animation: threeimage2 25s linear infinite;
-                    animation: threeimage2 25s linear infinite;
+            -webkit-animation: threeimage2 10s linear infinite;
+                    animation: threeimage2 10s linear infinite;
             -webkit-animation-play-state: paused;
                     animation-play-state: paused;
             z-index: 2; }
           .work figure .imagebox img.three:nth-of-type(3) {
-            -webkit-animation: threeimage3 25s linear infinite;
-                    animation: threeimage3 25s linear infinite;
+            -webkit-animation: threeimage3 10s linear infinite;
+                    animation: threeimage3 10s linear infinite;
             -webkit-animation-play-state: paused;
                     animation-play-state: paused;
             z-index: 1; }
           .work figure .imagebox img.four:nth-of-type(1) {
-            -webkit-animation: fourimage1 25s linear infinite;
-                    animation: fourimage1 25s linear infinite;
+            -webkit-animation: fourimage1 13s linear infinite;
+                    animation: fourimage1 13s linear infinite;
             -webkit-animation-play-state: paused;
                     animation-play-state: paused;
             z-index: 4; }
           .work figure .imagebox img.four:nth-of-type(2) {
-            -webkit-animation: fourimage2 25s linear infinite;
-                    animation: fourimage2 25s linear infinite;
+            -webkit-animation: fourimage2 13s linear infinite;
+                    animation: fourimage2 13s linear infinite;
             -webkit-animation-play-state: paused;
                     animation-play-state: paused;
             z-index: 3; }
           .work figure .imagebox img.four:nth-of-type(3) {
-            -webkit-animation: fourimage3 25s linear infinite;
-                    animation: fourimage3 25s linear infinite;
+            -webkit-animation: fourimage3 13s linear infinite;
+                    animation: fourimage3 13s linear infinite;
             -webkit-animation-play-state: paused;
                     animation-play-state: paused;
             z-index: 2; }
           .work figure .imagebox img.four:nth-of-type(4) {
-            -webkit-animation: fourimage4 25s linear infinite;
-                    animation: fourimage4 25s linear infinite;
+            -webkit-animation: fourimage4 13s linear infinite;
+                    animation: fourimage4 13s linear infinite;
             -webkit-animation-play-state: paused;
                     animation-play-state: paused;
             z-index: 1; }

@@ -713,6 +713,10 @@ footer {
     text-align: center; }
     header h1 {
       max-width: 100%; }
+    header p:first-of-type {
+      margin-bottom: 0; }
+    header p + p {
+      margin-top: 0; }
   .work {
     display: flex;
     flex-direction: row;
@@ -764,38 +768,39 @@ footer {
         width: calc(100vw - 66vw); }
       .work figure .imagebox {
         background-color: #E65034;
-        order: 2; }
+        order: 2;
+        cursor: pointer; }
         .work figure .imagebox img {
           max-height: initial;
           max-width: initial; }
           .work figure .imagebox img:not(:nth-of-type(1)) {
             display: block; }
           .work figure .imagebox img.three:nth-of-type(1) {
-            animation: threeimage1 25s linear infinite;
+            animation: threeimage1 10s linear infinite;
             animation-play-state: paused;
             z-index: 3; }
           .work figure .imagebox img.three:nth-of-type(2) {
-            animation: threeimage2 25s linear infinite;
+            animation: threeimage2 10s linear infinite;
             animation-play-state: paused;
             z-index: 2; }
           .work figure .imagebox img.three:nth-of-type(3) {
-            animation: threeimage3 25s linear infinite;
+            animation: threeimage3 10s linear infinite;
             animation-play-state: paused;
             z-index: 1; }
           .work figure .imagebox img.four:nth-of-type(1) {
-            animation: fourimage1 25s linear infinite;
+            animation: fourimage1 13s linear infinite;
             animation-play-state: paused;
             z-index: 4; }
           .work figure .imagebox img.four:nth-of-type(2) {
-            animation: fourimage2 25s linear infinite;
+            animation: fourimage2 13s linear infinite;
             animation-play-state: paused;
             z-index: 3; }
           .work figure .imagebox img.four:nth-of-type(3) {
-            animation: fourimage3 25s linear infinite;
+            animation: fourimage3 13s linear infinite;
             animation-play-state: paused;
             z-index: 2; }
           .work figure .imagebox img.four:nth-of-type(4) {
-            animation: fourimage4 25s linear infinite;
+            animation: fourimage4 13s linear infinite;
             animation-play-state: paused;
             z-index: 1; }
           .work figure .imagebox img.fixed {
