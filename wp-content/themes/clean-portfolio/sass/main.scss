@@ -167,26 +167,6 @@ h1, h2, h3, h4, h5 {
     color:$primary;
 }
 
-header {
-    width:calc(100vw - (#{$standmargin} * 4));
-    padding:($standmargin * 4) ($standmargin * 2);
-    min-height: 50vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    h1 {
-        color:$primary;
-        max-width:50%;
-    }
-    a {
-        border-bottom:2px solid $primary;
-    }
-    p {
-        font-size:1.65em;
-        line-height:2;
-    }
-}
-
 .work {
     figure {
         $width: "(100vw - 60px)";
@@ -290,7 +270,64 @@ footer {
     }
 }
 
+/* ==========================================================================
+   Facelift frontend styles
+   ========================================================================== */
 
+$baseline: 28px;
+$background: rgb(216,202,172);
+$circle: rgb(137,155,154);
+
+$textcolor: rgb(0,0,0);
+html {
+    $line-height: 1.65;
+    font-size: $baseline / $line-height;
+    line-height: $line-height;
+}
+body {
+    font-family: niveau-grotesk, Futura, Helvetica Neue, Helvetica, Verdana, sans-serif;
+    font-weight:400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color:$background;
+}
+header {
+    h1 {
+        color:$textcolor;
+        width: 24 * $baseline;
+        margin: (8 * $baseline) 0 0 (8 * $baseline);
+        transform: rotate(90deg);
+        transform-origin: 0;
+        position:relative;
+        z-index:5;
+        &:before {
+            width: 16 * $baseline;
+            height: 16 * $baseline;
+            background-color: $circle;
+            border: 1px solid transparent;
+            border-radius:50%;    
+            margin: (1.5 * $baseline) 0 0 0;
+            position: absolute;
+            top: -9 * $baseline;
+            left: -8 * $baseline;
+            z-index: -1;
+            content: '';
+        }
+    }
+    a {
+        border-bottom:2px solid $primary;
+    }
+    p {
+        font-size:1.65em;
+        line-height:2;
+    }
+}
+
+#fade {
+    width:36 * $baseline;
+    height:36 * $baseline;
+
+}
 
 /* ==========================================================================
    Helper classes
@@ -377,12 +414,6 @@ footer {
     html {
         background-color: $trim;
     }
-    header {  
-        text-align:center;
-        h1 {
-            max-width:100%;
-        }
-    }
     .work {
         display: flex;
         flex-direction: row;
@@ -420,18 +451,12 @@ footer {
     }
 }
 @media only screen and (min-width: 1280px) {
-    header, main, footer {
+    main, footer {
         width: 100%;
         width: 100vw;
         height:100vh;
         margin-left:auto;
         margin-right: auto;
-    }
-    header {
-        h1 {
-            font-size: 5.063em;
-            text-transform:uppercase;
-            }
     }
     .work {
         background-color: $bg;
@@ -455,6 +480,7 @@ footer {
             .imagebox {
                 background-color: $primary;
                 order:2;
+                cursor: pointer;
                 img {
                     max-height:initial;
                     max-width:initial;
@@ -477,7 +503,7 @@ footer {
                         z-index:1;
                     }
                     &.four:nth-of-type(1){
-                        animation: fourimage1 10s linear infinite;
+                        animation: fourimage1 13s linear infinite;
                         animation-play-state:paused;
                         z-index:4;
                     }

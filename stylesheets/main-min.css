@@ -543,22 +543,6 @@ h1, h2, h3, h4, h5 {
   font-weight: 600;
   color: #E65034; }
 
-header {
-  width: calc(100vw - (15px * 4));
-  padding: 60px 30px;
-  min-height: 50vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center; }
-  header h1 {
-    color: #E65034;
-    max-width: 50%; }
-  header a {
-    border-bottom: 2px solid #E65034; }
-  header p {
-    font-size: 1.65em;
-    line-height: 2; }
-
 .work figure {
   width: calc((100vw - 60px));
   margin: 0 auto 30px;
@@ -637,6 +621,52 @@ footer {
     background-color: #f7baba; } }
 
 /* ==========================================================================
+   Facelift frontend styles
+   ========================================================================== */
+html {
+  font-size: 16.9696969697px;
+  line-height: 1.65; }
+
+body {
+  font-family: niveau-grotesk, Futura, Helvetica Neue, Helvetica, Verdana, sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #d8caac; }
+
+header h1 {
+  color: black;
+  width: 672px;
+  margin: 224px 0 0 224px;
+  transform: rotate(90deg);
+  transform-origin: 0;
+  position: relative;
+  z-index: 5; }
+  header h1:before {
+    width: 448px;
+    height: 448px;
+    background-color: #899b9a;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    margin: 42px 0 0 0;
+    position: absolute;
+    top: -252px;
+    left: -224px;
+    z-index: -1;
+    content: ''; }
+
+header a {
+  border-bottom: 2px solid #E65034; }
+
+header p {
+  font-size: 1.65em;
+  line-height: 2; }
+
+#fade {
+  width: 1008px;
+  height: 1008px; }
+
+/* ==========================================================================
    Helper classes
    ========================================================================== */
 /*
@@ -709,10 +739,6 @@ footer {
   /* Style adjustments for viewports that meet the condition */
   html {
     background-color: white; }
-  header {
-    text-align: center; }
-    header h1 {
-      max-width: 100%; }
   .work {
     display: flex;
     flex-direction: row;
@@ -728,7 +754,7 @@ footer {
     background-color: #F7F6F5;
     padding-bottom: 15px; }
     footer p {
-      color: #2A9988;
+      color: black;
       text-align: center;
       margin: 0 auto; } }
 
@@ -738,15 +764,12 @@ footer {
     height: calc(((100vw - (60px + (30px * 2)) ) / 2) / 1.5); } }
 
 @media only screen and (min-width: 1280px) {
-  header, main, footer {
+  main, footer {
     width: 100%;
     width: 100vw;
     height: 100vh;
     margin-left: auto;
     margin-right: auto; }
-  header h1 {
-    font-size: 5.063em;
-    text-transform: uppercase; }
   .work {
     background-color: #F7F6F5; }
     .work > a {
@@ -764,7 +787,8 @@ footer {
         width: calc(100vw - 66vw); }
       .work figure .imagebox {
         background-color: #E65034;
-        order: 2; }
+        order: 2;
+        cursor: pointer; }
         .work figure .imagebox img {
           max-height: initial;
           max-width: initial; }
@@ -783,7 +807,7 @@ footer {
             animation-play-state: paused;
             z-index: 1; }
           .work figure .imagebox img.four:nth-of-type(1) {
-            animation: fourimage1 10s linear infinite;
+            animation: fourimage1 13s linear infinite;
             animation-play-state: paused;
             z-index: 4; }
           .work figure .imagebox img.four:nth-of-type(2) {
@@ -813,7 +837,7 @@ footer {
           font-size: 2.25em;
           color: #E65034; }
         .work figure figcaption p {
-          color: #2A9988; }
+          color: black; }
         .work figure figcaption a {
           color: #E65034; }
         .work figure figcaption .tags {
