@@ -1,19 +1,21 @@
-# Ignore everything in root except...
-*.scssc
+.DS_Store
+node_modules
+/dist
 
-/*
-!.gitignore
-!wp-content/
-!stylesheets
-!js
-!gruntfile.js
-!package.json
+# local env files
+.env.local
+.env.*.local
 
-wp-content/*
-!wp-content/themes/
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-wp-content/themes/*
-!wp-content/themes/clean-portfolio
-
-wp-content/themes/clean-portfolio/.sass-cache
-**/.DS_Store
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw*
