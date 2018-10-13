@@ -1,0 +1,11 @@
+$desktop: 769px;
+$wrapper: 1170px;
+
+$gridWidth: 1350px;
+$gridColumns: 9;
+$columnWidth: $gridWidth / $gridColumns;
+$mobileColumns: 6;
+
+$font-size: 16px;
+$line-height: 1.25;
+$baseline: $font-size * $line-height;

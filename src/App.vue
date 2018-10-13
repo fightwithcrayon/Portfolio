@@ -1,28 +1,45 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <transition>
+      <Header class="header--loading" v-if="loading"/>
+      <Header v-else/>
+    </transition>
+    <Listings v-if="!loading"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from './components/Header.vue'
+import Listings from './components/Listings.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    Header, Listings
+  },
+  mounted () {
+    window.setTimeout(() => {this.loading = false}, 1000)
+  },
+  data () {
+    return {
+      loading: true
+    }
   }
 }
 </script>
 
 <style lang="scss">
+body {
+  margin: 0;
+  padding: 0;
+  font-size: $font-size;
+  line-height: $line-height;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  position: relative;
+  margin: 0 vr(1);
 }
 </style>
