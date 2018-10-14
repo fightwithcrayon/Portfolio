@@ -4,9 +4,9 @@
     <router-link tag="article" :to="`/${work.slug}`" v-for="(work, i) in works" :key="i" 
       :class="`listings__card ${work.starred ? 'listings__card--wide' : ''} card`">
 
+      <img class="card__image" :src="work.image.src" />
       <h1 class="card__title">{{work.title}}</h1>
       <p class="card__year">{{work.year}}</p>
-      <img class="card__image" />
 
     </router-link>
 
@@ -19,23 +19,23 @@ export default {
   data () {
     return {
       works: [{
-        title: 'Title',
-        year: '2018',
+        title: 'Crack in the Road',
+        year: '2010 – 2017',
         image: {
-          src: '',
+          src: require('@/assets/crackintheroad.png'),
           srcset: ''
         }
       },
       {
-        title: 'Title',
-        year: '2018',
+        title: 'Unrecorded',
+        year: '2014',
         image: {
-          src: '',
+          src: require('@/assets/unrecorded.png'),
           srcset: ''
         }
       },
       {
-        title: 'Title',
+        title: 'Sheffield Bricktropolis',
         year: '2018',
         image: {
           src: '',
@@ -68,13 +68,18 @@ export default {
   }
 }
 .card {
-  background-color: #6A9AA2;
   padding: 0 0 vr(1);
   &__title {
-
+    margin: 0 0 vr(0.5);
   }
   &__year {
-    
+    margin: 0 0 vr(1);
+  }
+  &__image {
+    width: 100%;
+    margin: 0 0 vr(1);
+    background-color: $peach;
+    height: col(6);
   }
 }
 </style>

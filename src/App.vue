@@ -34,6 +34,7 @@ body {
   padding: 0;
   font-size: $font-size;
   line-height: $line-height;
+  color: $text-color;
 }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;

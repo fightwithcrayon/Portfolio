@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <div class="header__contents">
-      <h1 class="header__intro">An abridged collection of things built by Andrew Hill</h1>
+      <h1 class="header__intro">An <span data-tooltip="Contact me for more">abridged</span> collection of <span data-tooltip="Websites, apps, and tools">things</span> built by <span data-tooltip="Some developer who works in Sheffield">Andrew Hill</span></h1>
     </div>
   </header>
 </template>
@@ -30,6 +30,9 @@ export default {
   transform: translateY(-50%);
   @media screen and (min-width: $desktop) {
     transform: none;
+  }
+  span {
+    border-bottom: 2px solid currentColor;
   }
 }
 </style>
