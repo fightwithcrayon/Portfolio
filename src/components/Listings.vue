@@ -1,12 +1,18 @@
 <template>
   <div class="listings">
 
-    <router-link tag="article" :to="`/${work.slug}`" v-for="(work, i) in works" :key="i" 
+    <router-link tag="article" :to="`/${work.slug}`" v-for="(work, i) in works" :key="i"
       :class="`listings__card ${work.starred ? 'listings__card--wide' : ''} card`">
 
       <img class="card__image" :src="work.image.src" />
       <h1 class="card__title">{{work.title}}</h1>
+      <p class="card__role">{{work.role}}</p>
       <p class="card__year">{{work.year}}</p>
+      <ul class="card__icons">
+        <li class="card__icons-icon" v-for="(icon, i) in icons" :key="i">
+          <img :src="types[icon].icon" />
+        </li>
+      </ul>
 
     </router-link>
 
@@ -14,35 +20,15 @@
 </template>
 
 <script>
+import Works from '@/projects.js'
+import Types from '@/types.js'
+
 export default {
   name: 'Listings',
   data () {
     return {
-      works: [{
-        title: 'Crack in the Road',
-        year: '2010 – 2017',
-        image: {
-          src: require('@/assets/crackintheroad.png'),
-          srcset: ''
-        }
-      },
-      {
-        title: 'Unrecorded',
-        year: '2014',
-        image: {
-          src: require('@/assets/unrecorded.png'),
-          srcset: ''
-        }
-      },
-      {
-        title: 'Sheffield Bricktropolis',
-        year: '2018',
-        image: {
-          src: '',
-          srcset: ''
-        },
-        starred: true
-      }]
+      works: Works,
+      types: Types
     }
   }
 }
@@ -50,32 +36,47 @@ export default {
 <style lang="scss">
 .listings {
   @include wrapper;
-  @include grid;
+  display: grid;
+  grid-template-areas: "a";
+  grid-auto-columns: 1fr;
+  grid-gap: vr(1);
   margin-top: vr(-3);
+  z-index: 1;
+  @media screen and (min-width: $desktop) {
+    grid-template-areas: "a  b";
+  }
   &__card {
-    grid-column: 1 / 5;
     @media screen and (min-width: $desktop) {
-      &:nth-child(odd) {
-        grid-column: 1 / 7;
-      }
-      &:nth-child(even) {
-        grid-column: 7 / 13;
-      }
       &--wide {
-        grid-column: 1 / 13 !important;
+        grid-column: 1 / 3;
       }
     }
   }
 }
 .card {
+  display: grid;
+  grid-template-areas: 
+    "image image image"
+    "title gap year"
+    "role gap year";
   padding: 0 0 vr(1);
   &__title {
+    grid-area: title;
+    @include h2;
+    margin: 0 0 vr(0.5);
+  }
+  &__role {
+    grid-area: role;
+    @include h3;
     margin: 0 0 vr(0.5);
   }
   &__year {
+    grid-area: year;
+    @include h4;
     margin: 0 0 vr(1);
   }
   &__image {
+    grid-area: image;
     width: 100%;
     margin: 0 0 vr(1);
     background-color: $peach;

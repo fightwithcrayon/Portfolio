@@ -18,8 +18,10 @@
     "@vue/cli-plugin-pwa": "^3.0.5",
     "@vue/cli-service": "^3.0.5",
     "@vue/eslint-config-standard": "^3.0.5",
+    "jimp": "^0.5.4",
     "node-sass": "^4.9.0",
     "postcss-preset-env": "^6.1.1",
+    "responsive-loader": "^1.1.0",
     "sass-loader": "^7.0.1",
     "vue-cli-plugin-route": "^0.0.7",
     "vue-template-compiler": "^2.5.17"
