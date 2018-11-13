@@ -30,7 +30,7 @@
 * *
 */
 @function vr($multiple) {
-  @return $baseline * $multiple;
+  @return #{$baseline * $multiple};
 }
 
 @mixin target_ie11 () {

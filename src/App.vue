@@ -1,63 +1,41 @@
 <template>
-  <div id="app">
-    <transition mode="in-out" name="curtain">
-      <Header key="1" class="header--loading" v-if="loading"/>
-      <Header key="2" v-else/>
-    </transition>
-    <Listings v-if="!loading"/>
-  </div>
+  <router-view id="app" />
 </template>
 
 <script>
-import Header from './components/Header.vue'
-import Listings from './components/Listings.vue'
 
 export default {
-  name: 'app',
-  components: {
-    Header, Listings
-  },
-  mounted () {
-    window.setTimeout(() => { this.loading = false }, 1000)
-  },
-  data () {
-    return {
-      loading: true
-    }
-  }
+  name: 'App'
 }
 </script>
 
 <style lang="scss">
-body {
+@font-face {
+  font-family: 'Graphik';
+  font-weight: 400;
+  src: local('Graphik Regular Web'), local('Graphik Web'), local('Graphik Regular'), local('Graphik'),
+       url('./assets/fonts/Graphik-Regular-Web.woff') format('woff');
+}
+body, html, h1, h2, h3, h4, h5, h6, p, ul li, a {
   margin: 0;
   padding: 0;
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+body {
   font-size: $font-size;
   line-height: $line-height;
+  font-weight: $font-weight-regular;
   color: $text-color;
-}
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Graphik', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  margin: 0 vr(1);
-}
-.curtain-leave-active {
-  z-index: 3;
-  transition: transform 1s;
-  .header__contents {
-    transition: transform 1s;
-  }
-}
-.curtain-leave {
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-.curtain-leave-to {
-  transform: translate3d(0px, -100vh, -0vh) scale3d(1, 1, 1);
-  .header__contents {
-    transform: translate3d(0px, 100vh, -0vh) scale3d(1, 1, 1);
+  margin: vr(0.5);
+  @media (min-width: $md) {
+    margin: vr(0.5) vr(1);
   }
 }
 </style>

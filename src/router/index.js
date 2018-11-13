@@ -1,9 +1,19 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+import Home from '@/views/Home.vue'
+import Project from '@/views/Project.vue'
+
 Vue.use(VueRouter)
 
-const routes = []
+const routes = [{
+  path: '/',
+  component: Home
+},
+{
+  path: '/project/:slug',
+  component: Project
+}]
 
 // eslint-disable-next-line no-new
 const router = new VueRouter({
