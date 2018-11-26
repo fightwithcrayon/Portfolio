@@ -1,13 +1,15 @@
-<template>
-  <div class="project">
-    <Nav class="project__nav" :child="project.title" />
-    <div class="project__info">
-      <a :href="project.url" v-if="project.url">Visit live site</a>
+<template> 
+  <transition name="fade" mode="out-in">
+    <div class="project">
+      <Nav class="project__nav" :child="project.title" />
+      <div class="project__info">
+        <a :href="project.url" v-if="project.url">Visit live site</a>
+      </div>
+      <div class="project__visual">
+        <iframe :src="project.url" v-if="project.type === 'embed'" class="project__visual-embed" />
+      </div>
     </div>
-    <div class="project__visual">
-      <iframe :src="project.url" v-if="project.type === 'embed'" class="project__visual-embed" />
-    </div>
-  </div>
+  </transition>
 </template>
 
 <script>
@@ -58,5 +60,16 @@ export default {
   height: 200vh;
   width: 100vw;
   transform: scale(0.5) translate(-50%, -50%);
+}
+.fade-enter-active {
+  transition: opacity 300ms linear 1200ms;
+  position: absolute;
+  top: vr(0.5);
+  left: vr(1);
+  bottom: vr(0.5);
+  right: vr(1);
+}
+.fade-enter {
+  opacity: 0;
 }
 </style>

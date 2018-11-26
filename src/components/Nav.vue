@@ -19,6 +19,7 @@ export default {
   display: flex;
   flex-direction: row;
   margin-bottom: vr(1);
+  height: vr(3);
   &__crumb-active {
     @include link_underline;
   }

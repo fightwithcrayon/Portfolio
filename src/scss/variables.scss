@@ -18,10 +18,12 @@ $line-height: 1.9;
 $baseline: $font-size * $line-height;
 $font-weight-regular: 400;
 
-$text-color: rgb(51, 51, 51);
 $blue: rgb(208, 217, 229);
 $grey: rgb(249, 249, 249);
-$peach: rgb(232, 195, 188);
+$peach: rgb(227, 204, 205);
+
+$bg-color: #141414;
+$text-color: rgb(255, 255, 255);
 
 @mixin h2 {
   font-size: $font-size * $line-height;
@@ -44,5 +46,15 @@ $peach: rgb(232, 195, 188);
     right: 0;
     bottom: 10%;
     height: 1px;
+    width: 100%;
+    transform: scale(0.1);
+    opacity: 0;
+  }
+}
+
+@mixin link_underline--active {
+  &::after {
+    transform: scale(1);
+    opacity: 1;
   }
 }

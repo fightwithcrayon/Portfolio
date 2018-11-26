@@ -14,5 +14,6 @@ export default {
   width: 50vh;
   height: 50vh;
   background-color: grey;
+  visibility: hidden;
 }
 </style>

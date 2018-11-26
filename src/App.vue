@@ -26,6 +26,7 @@ body, html, h1, h2, h3, h4, h5, h6, p, ul li, a {
   color: inherit;
 }
 body {
+  background-color: $bg-color;
   font-size: $font-size;
   line-height: $line-height;
   font-weight: $font-weight-regular;

@@ -21,6 +21,17 @@ export default [
     type: 'embed'
   },
   {
+    title: 'Sheffield Christmas Trail',
+    slug: 'sheffield-christmas-trail',
+    desc: 'An app for the festive season',
+    year: '2018',
+    role: 'Mobile',
+    url: {
+      'Play Store': 'https://itunes.apple.com/gb/app/bricktropolis/id1418561757?mt=8',
+      'App Store': 'https://itunes.apple.com/gb/app/bricktropolis/id1418561757?mt=8'
+    }
+  },
+  {
     title: 'Party for the People',
     slug: 'party-for-the-people',
     desc: 'Charitable ticketing',
@@ -46,8 +57,8 @@ export default [
     type: 'embed'
   },
   {
-    title: 'Sheffield Bricktropolis',
-    slug: 'sheffield-bricktropolis',
+    title: 'Bricktropolis',
+    slug: 'bricktropolis',
     desc: 'Citywide treasure hunt',
     year: '2018',
     role: 'Mobile',
@@ -59,7 +70,7 @@ export default [
   {
     title: 'LifeSkills',
     slug: 'lifeskills',
-    desc: '##',
+    desc: 'A world for young learners',
     year: '2017',
     role: 'CSS',
     url: 'https://learnaliving.co.uk/',
@@ -75,7 +86,7 @@ export default [
   {
     title: 'Crooked',
     slug: 'crooked-beverage-co',
-    desc: 'Living artwork',
+    desc: 'Bringing artwork to life',
     year: '2017',
     role: 'WordPress'
   },

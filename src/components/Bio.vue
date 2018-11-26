@@ -1,6 +1,12 @@
 <template>
   <div class="bio">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et elementum dolor. Fusce nec lacus dapibus, euismod ex quis, dignissim lacus. Suspendisse in luctus est. Sed lorem lorem, facilisis ut eros vitae, elementum malesuada nisl. Nunc eu arcu sed dui finibus aliquet at id urna. Proin cursus lorem vitae dolor faucibus cursus. Cras eu semper turpis.
+    <p class="bio__paragraph">Andrew is a UK developer, working across Sheffield and London. Focused on creating eye catching <span class="bio__emphasis">yet highly performant</span> digital projects, he has worked with international corporations, consumer brands, regional governments, and visual artists.</p>
+    <p class="bio__paragraph">Founded award-winning music website Crack in the Road in 2010.</p>
+    <p class="bio__paragraph">
+      Get in touch:
+      <a class="bio__link" href="mailto:contact@andrewthomashill.co.uk">English</a> /
+      <a class="bio__link" href="mailto:habla@andrewthomashill.co.uk">Español</a>
+    </p>
   </div>
 </template>
 
@@ -21,6 +27,16 @@ export default {
   }
   @media (min-width: $xl) {
     padding-right: 25%;
+  }
+  &__paragraph:not(:last-child) {
+    margin-bottom: vr(0.5);
+  }
+  &__emphasis {
+    @include link_underline;
+  }
+  &__link {
+    display: inline-block;
+    font-weight: bold;
   }
 }
 </style>
