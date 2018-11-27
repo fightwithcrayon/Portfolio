@@ -62,7 +62,7 @@ export default {
   transform: scale(0.5) translate(-50%, -50%);
 }
 .fade-enter-active {
-  transition: opacity 300ms linear 1200ms;
+  transition: opacity 300ms linear 2000ms;
   position: absolute;
   top: vr(0.5);
   left: vr(1);

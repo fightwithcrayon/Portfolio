@@ -1,6 +1,10 @@
 <template>
     <div class="works">
-      <div v-for="(project, i) in projects" :key="i" :class="`works__row ${selected === i ? 'works__row--active' : ''}`" @click="goTo(project.slug, i)">
+      <div 
+        v-for="(project, i) in projects" :key="i" :ref="i"
+        :class="`works__row ${selected === i ? 'works__row--active' : ''}`"
+        :style="`${selected === i ? `top: ${pinnedAt.top}px; left: ${pinnedAt.left}px;` : ''}`"
+        @click="goTo(project.slug, i)">
         <h2 class="works__row-cell work__title" v-html="staggerOutput(project.title)" />
         <p class="works__row-cell work__desc" v-html="staggerOutput(project.desc)" />
         <p class="works__row-cell work__role" v-html="staggerOutput(project.role)" />
@@ -16,13 +20,23 @@ export default {
   name: 'Works',
   data () {
     return {
+      pinnedAt: {
+        top: 0,
+        left: 0
+      },
       projects: data,
       selected: false
     }
   },
   methods: {
-    goTo (slug, index) {
-      this.selected = index
+    goTo (slug, i) {
+      console.log(this.$refs[i])
+      this.pinnedAt = {
+        top: this.$refs[i][0].offsetTop,
+        left: this.$refs[i][0].offsetLeft
+      }
+      this.selected = i
+      console.log(this.pinnedAt)
       this.$nextTick(() => {
         this.$router.push({ path: `/project/${slug}` })
       })
@@ -95,9 +109,10 @@ export default {
   }
 }
 .works__row--active {
+  line-height: vr(1.5);
   .work__title::before {
     content: 'Index';
-    display: flex;
+    display: inline-flex;
     max-height: 0px;
     max-width: 0px;
     margin-right: 0px;

@@ -52,22 +52,22 @@ export default {
   }
 }
 .index-leave-active {
-  transition: opacity 1500ms;
+  transition: opacity 2000ms;
   .nav,
   .bio,
   .np,
   .works__row:not(.works__row--active) {
-    transition: opacity 300ms, transform 600ms linear 300ms, line-height 600ms linear 300ms;
+    transition: opacity 300ms;
   }
   .works__row--active {
-    transition: transform 300ms linear 450ms;
+    transition: position 1ms linear 900ms, top 600ms linear 900ms;
     .work__desc,
     .work_role,
     .work_year {
-      transition: opacity 300ms linear 450ms;
+      transition: opacity 300ms linear 600ms;
     }
     .work__title::before {
-      transition: all 300ms linear 900ms;
+      transition: all 300ms linear 1500ms;
     }
   }
 }
@@ -77,13 +77,12 @@ export default {
   .np,
   .works__row:not(.works__row--active) {
     opacity: 0 !important;
-    transform: scale(0) !important;
-    line-height: 0 !important;
-    margin-bottom: 0 !important;
-    margin-bottom: 0 !important;
   }
   .works__row--active {
-    height: vr(1);
+    position: absolute;
+    top: vr(0.5) !important;
+    line-height: 1;
+    height: vr(1.5);
     .work__desc,
     .work__role,
     .work__year {
@@ -91,7 +90,8 @@ export default {
     }
     .work__title::before {
       content: 'Index';
-      width: auto;
+      max-height: 100%;
+      max-width: 100%;
       margin-right: vr(1);
       opacity: 1;
     }
