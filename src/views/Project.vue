@@ -1,4 +1,4 @@
-<template> 
+<template>
   <transition name="fade" mode="out-in">
     <div class="project">
       <Nav class="project__nav" :child="project.title" />

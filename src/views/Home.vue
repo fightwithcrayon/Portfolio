@@ -60,11 +60,10 @@ export default {
     transition: opacity 300ms;
   }
   .works__row--active {
-    transition: position 1ms linear 900ms, top 600ms linear 900ms;
     .work__desc,
     .work_role,
     .work_year {
-      transition: opacity 300ms linear 600ms;
+      transition: opacity 300ms;
     }
     .work__title::before {
       transition: all 300ms linear 1500ms;
@@ -79,10 +78,7 @@ export default {
     opacity: 0 !important;
   }
   .works__row--active {
-    position: absolute;
-    top: vr(0.5) !important;
-    line-height: 1;
-    height: vr(1.5);
+    animation-play-state: running;
     .work__desc,
     .work__role,
     .work__year {

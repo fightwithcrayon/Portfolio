@@ -1,6 +1,6 @@
 <template>
   <div class="bio">
-    <p class="bio__paragraph">Andrew is a UK developer, working across Sheffield and London. Focused on creating eye catching <span class="bio__emphasis">yet highly performant</span> digital projects, he has worked with international corporations, consumer brands, regional governments, and visual artists.</p>
+    <p class="bio__paragraph">Andrew is a UK based developer. Focused on creating eye catching <span class="bio__emphasis">yet highly performant</span> digital projects, he has worked with international corporations, consumer brands, regional governments, and visual artists.</p>
     <p class="bio__paragraph">Founded award-winning music website Crack in the Road in 2010.</p>
     <p class="bio__paragraph">
       Get in touch:

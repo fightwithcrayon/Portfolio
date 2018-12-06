@@ -1,17 +1,16 @@
 <template>
-    <div class="works">
-      <div 
-        v-for="(project, i) in projects" :key="i" :ref="i"
-        :class="`works__row ${selected === i ? 'works__row--active' : ''}`"
-        :style="`${selected === i ? `top: ${pinnedAt.top}px; left: ${pinnedAt.left}px;` : ''}`"
-        @click="goTo(project.slug, i)">
-        <h2 class="works__row-cell work__title" v-html="staggerOutput(project.title)" />
-        <p class="works__row-cell work__desc" v-html="staggerOutput(project.desc)" />
-        <p class="works__row-cell work__role" v-html="staggerOutput(project.role)" />
-        <p class="works__row-cell work__year" v-html="staggerOutput(project.year)" />
-      </div>
+  <div class="works">
+    <div
+      v-for="(project, i) in projects" :key="i" :ref="i"
+      :class="`works__row ${selected === i ? 'works__row--active' : ''}`"
+      :style="`${selected === i ? `--offsetTop: -${pinnedAt.top}px; top: ${pinnedAt.top}px; left: ${pinnedAt.left}px;` : ''}`"
+      @click="goTo(project.slug, i)">
+      <h2 class="works__row-cell work__title" v-html="staggerOutput(project.title)" />
+      <p class="works__row-cell work__desc" v-html="staggerOutput(project.desc)" />
+      <p class="works__row-cell work__role" v-html="staggerOutput(project.role)" />
+      <p class="works__row-cell work__year" v-html="staggerOutput(project.year)" />
     </div>
-  </transition>
+  </div>
 </template>
 
 <script>
@@ -30,9 +29,9 @@ export default {
   },
   methods: {
     goTo (slug, i) {
-      console.log(this.$refs[i])
+      console.log(window)
       this.pinnedAt = {
-        top: this.$refs[i][0].offsetTop,
+        top: this.$refs[i][0].offsetTop - window.scrollY,
         left: this.$refs[i][0].offsetLeft
       }
       this.selected = i
@@ -109,7 +108,13 @@ export default {
   }
 }
 .works__row--active {
-  line-height: vr(1.5);
+  animation: 1s becomeNavLegacy 300ms;
+  animation-play-state: paused;
+  animation-fill-mode: forwards;
+  width: 100%;
+  @supports (transform: translateY(vfffar(--offsetTop))) {
+    animation-name: becomeNav;
+  }
   .work__title::before {
     content: 'Index';
     display: inline-flex;
@@ -118,6 +123,28 @@ export default {
     margin-right: 0px;
     opacity: 0;
     overflow: hidden;
+  }
+}
+@keyframes becomeNavLegacy {
+  0% {
+    position: fixed;
+    line-height: vr(1);
+  }
+  100% {
+    position: fixed;
+    top: vr(0.5);
+    line-height: vr(1);
+  }
+}
+@keyframes becomeNav {
+  0% {
+    position: fixed;
+    line-height: vr(1);
+  }
+  100% {
+    position: fixed;
+    transform: translateY(var(--offsetTop));
+    line-height: vr(1);
   }
 }
 </style>
