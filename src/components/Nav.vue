@@ -1,7 +1,7 @@
 <template>
   <div class="nav">
     <router-link to="/" :class="`nav__crumb nav__crumb-index ${child ? '' : 'nav__crumb-active'}`">Index</router-link>
-    <div class="nav__crumb nav__crumb-child nav__crumb-active" v-if="child">{{child}}</div>
+    <h1 class="nav__crumb nav__crumb-child nav__crumb-active" v-if="child">{{child}}</h1>
   </div>
 </template>
 

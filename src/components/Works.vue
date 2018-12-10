@@ -112,6 +112,7 @@ export default {
   animation-play-state: paused;
   animation-fill-mode: forwards;
   width: 100%;
+  opacity: 1 !important;
   @supports (transform: translateY(vfffar(--offsetTop))) {
     animation-name: becomeNav;
   }

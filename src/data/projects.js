@@ -12,6 +12,21 @@ export default [
     type: 'embed'
   },
   {
+    title: 'Simon Tegala',
+    slug: 'simon-tegala',
+    desc: 'Living notebook',
+    year: '2018',
+    role: 'JS',
+    url: 'https://simontegala-flow.org/',
+    type: 'embed',
+    info: `Built to mark the opening of a new commission for Cambridge University by artist Simon Tegala, Flow. The site aims to bring the artist's notebook to life, taking visitors on a journey through the design process, while conveying the sense of ideas and inspiration flowing in to the design process.`,
+    notes: [
+      `Where possible, style changes are limited to opacity and transforms to avoid relayouts. Opacity changes only ever span between 0.01 and 0.99 to ensure these can be handled by the *compositer thread* alone`,
+      `Scroll performance is maintained by keeping per-frame browser processing within the 16.66ms that 60FPS requires. Instead of attaching many scroll handlers for animations, a single *passive scroll handler* updates a number of *CSS variables* on the root element. CSS is then able to quickly recalculate transforms`,
+      `Through careful use of *will-change*, preloading of larger images and management of *rendering layers*, including hoisting intensive animations to the GPU layer completely, the site avoids constant repaints when elements overlap. This ensures users maintain a high FPS, even on lower spec machines.`
+    ]
+  },
+  {
     title: 'Proxima',
     slug: 'proxima',
     desc: '##',
@@ -45,15 +60,6 @@ export default [
     year: '2017',
     role: 'CSS',
     url: 'https://everythingthatis.cloud/',
-    type: 'embed'
-  },
-  {
-    title: 'Simon Tegala',
-    slug: 'simon-tegala',
-    desc: 'Living notebook',
-    year: '2018',
-    role: 'JS',
-    url: 'https://simontegala-flow.org/',
     type: 'embed'
   },
   {
