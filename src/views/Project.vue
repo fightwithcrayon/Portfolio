@@ -2,13 +2,9 @@
   <transition name="fade" mode="out-in">
     <div class="project">
       <Nav class="project__nav" :child="project.title" />
-      <div class="project__info">
-        <p>{{project.info}}</p>
-      </div>
+      <div class="project__info" v-html="info"></div>
       <div class="project__notes" v-html="notes" />
-      <div class="project__visual">
-        <iframe :src="project.url" v-if="project.type === 'embed'" class="project__visual-embed" />
-      </div>
+      <div class="project__visual"></div>
     </div>
   </transition>
 </template>
@@ -26,11 +22,21 @@ export default {
     project () {
       return projects.filter(p => (p.slug === this.$route.params.slug))[0]
     },
+    info () {
+      if (!this.project.info) return
+      if (typeof this.project.info === 'string') return `<p>${this.project.info}</p>`
+      return this.project.info.map(n => `<p>${n}</p>`).join('')
+    },
     notes () {
+      if (!this.project.notes) return
       let info = `<h2>Development notes</h2>`
       let notes = this.project.notes.map(n => `<li>${n}</li>`).join('')
       info += `<ul>${notes}</ul>`
-      if (this.project.url) info += `<a href="${this.project.url}">Visit live site</a>`
+      if (this.project.url) {
+        info += typeof this.project.url === 'string'
+          ? `<a href="${this.project.url}" target="_blank">Visit live site</a>`
+          : Object.keys(this.project.url).map(k => `<a href="${this.project.url[k]}" target="_blank">${k}</a>`).join(' / ')
+      }
       return info
     }
   }

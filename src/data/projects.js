@@ -1,5 +1,14 @@
 export default [
   {
+    title: 'Proxima',
+    slug: false,
+    desc: 'In Development',
+    year: 'c.2019',
+    role: 'Vue',
+    url: false,
+    type: 'embed'
+  },
+  {
     title: 'Crack in the Road',
     slug: 'crack-in-the-road',
     desc: 'Award-winning culture',
@@ -9,7 +18,15 @@ export default [
     },
     role: 'Founder',
     url: 'https://www.crackintheroad.com',
-    type: 'embed'
+    type: 'embed',
+    info: [
+      `Crack in the Road is an independent music and culture site, founded in 2010 and active until 2017.`,
+      `Winner of the ROTD music industry award for Best Website in 2012, and shortlisted for Blog of the Year by Ticketmaster in 2014.`,
+      `Everyone involved was great.`
+    ],
+    notes: [
+      ``
+    ]
   },
   {
     title: 'Simon Tegala',
@@ -27,23 +44,23 @@ export default [
     ]
   },
   {
-    title: 'Proxima',
-    slug: 'proxima',
-    desc: '##',
-    year: '2018',
-    role: 'Vue',
-    url: 'https://proxima.dev.theblackeyeproject.co.uk',
-    type: 'embed'
-  },
-  {
     title: 'Sheffield Christmas Trail',
     slug: 'sheffield-christmas-trail',
     desc: 'An app for the festive season',
     year: '2018',
     role: 'Mobile',
+    info: [
+      `Commissioned by the City of Sheffield's BID group, the Christmas Trail app brings to life a series of local characters in order to guide children on a treasure hunt across the city.`,
+      `Ran from 24th November – 24th December 2018`
+    ],
+    notes: [
+      `Animated characters were front and centre, therefore used Bodymovinto export animations from Adobe After Effects as JSON data. As well as allowing native 60FPS rendering, file sizes kept significantly smaller than video/image elements.`,
+      `Custom Lottie component built to instantly display a sub-3kb single frame SVG of character, then load animation asynchronously in the background, before swapping the two out seamlessly on load. Works around slow JSON loading and processing on some older devices that delayed page navigation.`,
+      `Microsoft Codepush support built in to core from start, in order to allow instant deployment of hot fixes to all users – designed to handle smooth, non-intrusive installation and updates for users who may be actively doing trail`
+    ],
     url: {
-      'Play Store': 'https://itunes.apple.com/gb/app/bricktropolis/id1418561757?mt=8',
-      'App Store': 'https://itunes.apple.com/gb/app/bricktropolis/id1418561757?mt=8'
+      'Play Store': 'https://play.google.com/store/apps/details?id=io.blackeye.christmastrail',
+      'App Store': 'https://itunes.apple.com/gb/app/sheffield-christmas-trail/id1436841953'
     }
   },
   {
@@ -51,26 +68,25 @@ export default [
     slug: 'party-for-the-people',
     desc: 'Charitable ticketing',
     year: '2018',
-    role: 'Rails'
-  },
-  {
-    title: 'etiCloud',
-    slug: 'eticloud',
-    desc: 'Stock photo free IT',
-    year: '2017',
-    role: 'CSS',
-    url: 'https://everythingthatis.cloud/',
-    type: 'embed'
+    role: 'Rails',
+    info: [
+      `Party for the People (and its sister site, Tickets for Good) are comprehensive event management and ticketing platforms, built and maintained in Ruby on Rails.`,
+      `Customers can purchase tickets, add on products, and donate to charity securely; promoters can create and manage event listings, manage their finances, and even use a iOS/Android app to scan users tickets on the door.`
+    ],
+    notes: [
+      ``,
+      ``
+    ]
   },
   {
     title: 'Bricktropolis',
     slug: 'bricktropolis',
-    desc: 'Citywide treasure hunt',
+    desc: 'Citywide LEGO event',
     year: '2018',
     role: 'Mobile',
     url: {
-      'Play Store': 'https://itunes.apple.com/gb/app/bricktropolis/id1418561757?mt=8',
-      'App Store': 'https://itunes.apple.com/gb/app/bricktropolis/id1418561757?mt=8'
+      'Play Store': 'https://play.google.com/store/apps/details?id=io.blackeye.bricktropolis',
+      'App Store': 'https://itunes.apple.com/gb/app/bricktropolis/id1418561757'
     }
   },
   {
@@ -80,7 +96,16 @@ export default [
     year: '2017',
     role: 'CSS',
     url: 'https://learnaliving.co.uk/',
-    type: 'embed'
+    type: 'embed',
+    info: [
+      `LifeSkills is a European Union funded charity that provides vocational opportunities and education to young people across the UK.`,
+      `Website redevelopment aimed to present a more modern and engaging experience to better connect young talent with vacancies, and businesses with the information they need to setup apprenticeships.`
+    ],
+    notes: [
+      `LifeSkills works with those from poor and disadvantaged backgrounds, therefore emphasis on [progressive enhancement] to keep site usable on older and lower spec devices.`,
+      `Providing such a visually rich homepage within a 2.5s [page load budget] on a 3G connection required all graphics to be vectors, with line complexity reduced via SVGO to reduce file size.`,
+      `Ongoing maintenance handled by non-technical inhouse team, therefore every page element built around custom meta fields and post type relationships in order to exposed them to the WordPress CMS.`
+    ]
   },
   {
     title: 'SDL Cloud',
@@ -92,22 +117,12 @@ export default [
   {
     title: 'Crooked',
     slug: 'crooked-beverage-co',
-    desc: 'Bringing artwork to life',
-    year: '2017',
-    role: 'WordPress'
-  },
-  {
-    title: 'Unrecorded',
-    slug: 'unrecorded',
-    desc: 'International music',
-    role: 'CSS',
-    year: '2014'
-  },
-  {
-    title: 'Measurement Dashboard',
-    slug: 'pr-measurement-dashboard',
-    desc: 'Business winning reporting',
+    desc: 'National consumer launch',
+    year: '2016',
     role: 'PHP',
-    year: '2013'
+    info: [
+      `Brand website to accompany high-profile national launch of a new alcoholic drink.`,
+      `Each product had an accompanying world created by illustrator Lisa O'Hara, which the website focused on and brought to life.`
+    ]
   }
 ]

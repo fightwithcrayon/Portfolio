@@ -2,7 +2,7 @@
   <div class="works">
     <div
       v-for="(project, i) in projects" :key="i" :ref="i"
-      :class="`works__row ${selected === i ? 'works__row--active' : ''}`"
+      :class="`works__row ${selected === i ? 'works__row--active' : ''} ${!project.slug ? 'works__row--disabled' : ''}`"
       :style="`${selected === i ? `--offsetTop: -${pinnedAt.top}px; top: ${pinnedAt.top}px; left: ${pinnedAt.left}px;` : ''}`"
       @click="goTo(project.slug, i)">
       <h2 class="works__row-cell work__title" v-html="staggerOutput(project.title)" />
@@ -29,13 +29,12 @@ export default {
   },
   methods: {
     goTo (slug, i) {
-      console.log(window)
+      if (!slug) return false
       this.pinnedAt = {
         top: this.$refs[i][0].offsetTop - window.scrollY,
         left: this.$refs[i][0].offsetLeft
       }
       this.selected = i
-      console.log(this.pinnedAt)
       this.$nextTick(() => {
         this.$router.push({ path: `/project/${slug}` })
       })
@@ -56,13 +55,14 @@ export default {
 .works {
   display: table;
   width: 100%;
-  &:hover > .works__row:not(:hover) {
-    opacity: 0.4;
-  }
   &__row {
     display: table-row;
     height: vr(1.5);
     cursor: pointer;
+    opacity: 0.4;
+    &:hover {
+      opacity: 1;
+    }
     &-cell {
       display: table-cell;
       vertical-align: middle;
@@ -113,7 +113,7 @@ export default {
   animation-fill-mode: forwards;
   width: 100%;
   opacity: 1 !important;
-  @supports (transform: translateY(vfffar(--offsetTop))) {
+  @supports (transform: translateY(calc(var(--offsetTop) + #{vr(0.5)}))) {
     animation-name: becomeNav;
   }
   .work__title::before {
@@ -125,6 +125,10 @@ export default {
     opacity: 0;
     overflow: hidden;
   }
+}
+.works__row--disabled:hover {
+  opacity: 0.4;
+  cursor: default;
 }
 @keyframes becomeNavLegacy {
   0% {
@@ -144,7 +148,7 @@ export default {
   }
   100% {
     position: fixed;
-    transform: translateY(var(--offsetTop));
+    transform: translateY(calc(var(--offsetTop) + #{vr(0.5)}));
     line-height: vr(1);
   }
 }
