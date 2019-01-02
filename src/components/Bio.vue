@@ -1,7 +1,7 @@
 <template>
   <div class="bio">
-    <p class="bio__paragraph">Andrew is a UK based developer. Focused on creating eye catching <span class="bio__emphasis">yet highly performant</span> digital projects, he has worked with international corporations, consumer brands, regional governments, and visual artists.</p>
-    <p class="bio__paragraph">Founded award-winning music website Crack in the Road in 2010.</p>
+    <p class="bio__paragraph">Andrew is a UK based developer. He has produced creative, yet <span class="bio__emphasis">highly performant</span>, projects for international corporations, consumer brands, regional governments, and visual artists.</p>
+    <p class="bio__paragraph">Co-founded award-winning culture site Crack in the Road in 2010.</p>
     <p class="bio__paragraph">
       Get in touch:
       <a class="bio__link" href="mailto:contact@andrewthomashill.co.uk">English</a> /

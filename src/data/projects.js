@@ -16,16 +16,13 @@ export default [
       xl: '2010 – ',
       basic: '2017'
     },
-    role: 'Founder',
+    role: 'Co-founder',
     url: 'https://www.crackintheroad.com',
     type: 'embed',
     info: [
       `Crack in the Road is an independent music and culture site, founded in 2010 and active until 2017.`,
       `Winner of the ROTD music industry award for Best Website in 2012, and shortlisted for Blog of the Year by Ticketmaster in 2014.`,
       `Everyone involved was great.`
-    ],
-    notes: [
-      ``
     ]
   },
   {
@@ -73,9 +70,11 @@ export default [
       `Party for the People (and its sister site, Tickets for Good) are comprehensive event management and ticketing platforms, built and maintained in Ruby on Rails.`,
       `Customers can purchase tickets, add on products, and donate to charity securely; promoters can create and manage event listings, manage their finances, and even use a iOS/Android app to scan users tickets on the door.`
     ],
-    notes: [
-      ``,
-      ``
+    technology: [
+      'Ruby on Rails for core system',
+      'Heroku for hosting and load balancing',
+      'Nativescript for iOS/Android ticket scanning apps',
+      'Swagger for REST API documentation'
     ]
   },
   {
@@ -87,7 +86,18 @@ export default [
     url: {
       'Play Store': 'https://play.google.com/store/apps/details?id=io.blackeye.bricktropolis',
       'App Store': 'https://itunes.apple.com/gb/app/bricktropolis/id1418561757'
-    }
+    },
+    info: [
+      `App for participating in a Sheffield tourist event that saw 21 Lego replicas of world monuments erected across the city, between 4th – 17th August 2018.`,
+      `Work was featured nationally on BBC News`
+    ],
+    technology: [
+      'Client built in Vue.js',
+      'Firebase for realtime backend',
+      'Reactive Vuexfire bindings for instant client data alterations',
+      'Local HTTP demon to stream map tiles without data connection',
+      'Cordova mobile framework wrapper'
+    ]
   },
   {
     title: 'LifeSkills',
@@ -98,8 +108,7 @@ export default [
     url: 'https://learnaliving.co.uk/',
     type: 'embed',
     info: [
-      `LifeSkills is a European Union funded charity that provides vocational opportunities and education to young people across the UK.`,
-      `Website redevelopment aimed to present a more modern and engaging experience to better connect young talent with vacancies, and businesses with the information they need to setup apprenticeships.`
+      `Creating a more modern and engaging digital experience for a European Union funded charity, in order to better connect young talent with vocational opportunities – and businesses with the information they need to host them.`
     ],
     notes: [
       `LifeSkills works with those from poor and disadvantaged backgrounds, therefore emphasis on [progressive enhancement] to keep site usable on older and lower spec devices.`,
@@ -112,7 +121,15 @@ export default [
     slug: 'sdl-language-cloud',
     desc: '##',
     year: '2017',
-    role: 'REST'
+    role: 'REST',
+    info: [
+      `Official WordPress plugin for industry leading cloud translation engine, allowing customers to instantly send and manage post translations from within the WordPress admin CMS.`,
+      `Work tested with and deployed by Intel's marketing teams to deliver multi-lingual blog copy.`
+    ],
+    notes: [
+      `Lack of multipart/form data support in wp_remote_post (as of July 2017) required custom CURL workarounds`,
+      `WP Multisite baked-in for centralised management/delegation to international blogging network`
+    ]
   },
   {
     title: 'Crooked',
@@ -123,6 +140,10 @@ export default [
     info: [
       `Brand website to accompany high-profile national launch of a new alcoholic drink.`,
       `Each product had an accompanying world created by illustrator Lisa O'Hara, which the website focused on and brought to life.`
+    ],
+    notes: [
+      'For maintainability reasons, entire project had to be built in PHP and CSS, despite suitability for a framework such as React',
+      'No internal resource for creating more than a handful of animations, therefore use of CSS transforms to simulate animations essential'
     ]
   }
 ]

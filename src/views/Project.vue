@@ -47,14 +47,18 @@ export default {
 .project {
   display: flex;
   flex-direction: column;
-  margin: vr(0.5);
+  position: relative;
+  margin: 0;
   width: 100%;
   min-height: calc(100vh - #{vr(1)});
-  @media (min-width: $md) {
-    margin: 0;
+  box-sizing: border-box;
+  @media (min-width: $xl) {
+    padding-right: 50%;
+    background-color: red;
   }
   &__info {
     margin-bottom: vr(1);
+    background-color: blue;
   }
   &__notes {
     margin-bottom: vr(1);

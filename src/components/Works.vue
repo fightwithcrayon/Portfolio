@@ -116,7 +116,8 @@ export default {
   @supports (transform: translateY(calc(var(--offsetTop) + #{vr(0.5)}))) {
     animation-name: becomeNav;
   }
-  .work__title::before {
+  .work__title::before,
+  .work__title::after {
     content: 'Index';
     display: inline-flex;
     max-height: 0px;
@@ -124,6 +125,11 @@ export default {
     margin-right: 0px;
     opacity: 0;
     overflow: hidden;
+  }
+  .work__title::after {
+    position: absolute;
+    left: 0;
+    top: 0;
   }
 }
 .works__row--disabled:hover {

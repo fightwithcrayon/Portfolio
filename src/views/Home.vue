@@ -65,7 +65,8 @@ export default {
     .work_year {
       transition: opacity 300ms;
     }
-    .work__title::before {
+    .work__title::before,
+    .work__title::after {
       transition: all 300ms linear 1500ms;
     }
   }
@@ -84,11 +85,13 @@ export default {
     .work__year {
       opacity: 0;
     }
-    .work__title::before {
-      content: 'Index';
+    .work__title::before,
+    .work__title::after {
       max-height: 100%;
       max-width: 100%;
       margin-right: vr(1);
+    }
+    .work__title::after {
       opacity: 1;
     }
   }
