@@ -1,10 +1,10 @@
 <template>
-  <transition name="fade" mode="out-in">
+  <transition name="fade" mode="out-in" @after-enter="_afterEnter" @after-appear="_afterEnter">
     <div class="project">
       <Nav class="project__nav" :child="project.title" />
       <div class="project__info" v-html="info"></div>
       <div class="project__notes" v-html="notes" />
-      <div class="project__visual"></div>
+      <Visuals class="project__visual" :project="project" v-if="pageReady" />
     </div>
   </transition>
 </template>
@@ -12,11 +12,17 @@
 <script>
 import projects from '@/data/projects.js'
 import Nav from '@/components/Nav.vue'
+import Visuals from '@/components/Visuals.vue'
 
 export default {
   name: 'Project',
   components: {
-    Nav
+    Nav, Visuals
+  },
+  data () {
+    return {
+      pageReady: false
+    }
   },
   computed: {
     project () {
@@ -39,6 +45,11 @@ export default {
       }
       return info
     }
+  },
+  methods: {
+    _afterEnter () {
+      this.pageReady = true
+    }
   }
 }
 </script>
@@ -53,20 +64,37 @@ export default {
   min-height: calc(100vh - #{vr(1)});
   box-sizing: border-box;
   @media (min-width: $xl) {
-    padding-right: 50%;
-    background-color: red;
+    display: grid;
+    grid-template-areas:
+      "nav nav"
+      "info visual"
+      "notes visual";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: min-content 1fr;
   }
   &__info {
+    grid-area: info;
     margin-bottom: vr(1);
-    background-color: blue;
+    width: 100%;
+    p {
+      margin-bottom: 0.5em;
+    }
   }
   &__notes {
+    grid-area: notes;
     margin-bottom: vr(1);
+    width: 100%;
   }
   &__visual {
-    width: 100vw;
-    margin-left: vr(-1);
-    background-color: grey;
+    grid-area: visual;
+    width: 100%;
+    @media (min-width: $xl) {
+      position: fixed;
+      top: vr(2);
+      left: calc(50% + #{vr(1)});
+      right: vr(1);
+      width: auto;
+    }
   }
 }
 .project__visual-embed {
@@ -77,14 +105,27 @@ export default {
 }
 .fade-enter-active {
   transition: opacity 300ms linear 1800ms;
-  position: absolute;
+  position: fixed;
   top: vr(0.5);
-  left: vr(1);
+  left: vr(0.5);
+  right: vr(0.5);
   width: auto;
-  bottom: vr(0.5);
-  right: vr(1);
+  @media (min-width: $md) {
+    left: vr(1);
+    right: vr(1);
+  }
+  .project__info,
+  .project__visual,
+  .project__notes {
+    transition: opacity 300ms linear 2000ms;
+  }
 }
 .fade-enter {
   opacity: 0;
+  .project__info,
+  .project__visual,
+  .project__notes {
+    opacity: 0;
+  }
 }
 </style>

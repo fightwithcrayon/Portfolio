@@ -1,5 +1,5 @@
 <template>
-  <transition name="index" mode="out-in">
+  <transition name="index" mode="out-in" @after-leave="beforeEnter">
     <div class="home">
       <Nav class="home__nav" />
       <Bio class="home__bio"/>
@@ -19,6 +19,12 @@ export default {
   name: 'Home',
   components: {
     Bio, Nav, NowPlaying, Works
+  },
+  methods: {
+    beforeEnter () {
+      console.log('Fired')
+      this.$root.$emit('readyForScroll')
+    }
   }
 }
 </script>
@@ -65,6 +71,9 @@ export default {
     .work_year {
       transition: opacity 300ms;
     }
+    .work__title {
+      transition: transform 300ms linear 1500ms;
+    }
     .work__title::before,
     .work__title::after {
       transition: all 300ms linear 1500ms;
@@ -85,13 +94,16 @@ export default {
     .work__year {
       opacity: 0;
     }
+    .work__title {
+      transform: translateX(vr(1));
+    }
     .work__title::before,
     .work__title::after {
-      max-height: 100%;
       max-width: 100%;
-      margin-right: vr(1);
     }
     .work__title::after {
+      max-height: 100%;
+      transform: translateX(vr(-1));
       opacity: 1;
     }
   }

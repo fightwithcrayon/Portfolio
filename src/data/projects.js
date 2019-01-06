@@ -3,7 +3,7 @@ export default [
     title: 'Proxima',
     slug: false,
     desc: 'In Development',
-    year: 'c.2019',
+    year: '2019',
     role: 'Vue',
     url: false,
     type: 'embed'
@@ -12,10 +12,7 @@ export default [
     title: 'Crack in the Road',
     slug: 'crack-in-the-road',
     desc: 'Award-winning culture',
-    year: {
-      xl: '2010 – ',
-      basic: '2017'
-    },
+    year: '2017',
     role: 'Co-founder',
     url: 'https://www.crackintheroad.com',
     type: 'embed',
@@ -23,14 +20,15 @@ export default [
       `Crack in the Road is an independent music and culture site, founded in 2010 and active until 2017.`,
       `Winner of the ROTD music industry award for Best Website in 2012, and shortlisted for Blog of the Year by Ticketmaster in 2014.`,
       `Everyone involved was great.`
-    ]
+    ],
+    images: ['cover', 'home', 'single']
   },
   {
     title: 'Simon Tegala',
     slug: 'simon-tegala',
     desc: 'Living notebook',
     year: '2018',
-    role: 'JS',
+    role: 'CSS',
     url: 'https://simontegala-flow.org/',
     type: 'embed',
     info: `Built to mark the opening of a new commission for Cambridge University by artist Simon Tegala, Flow. The site aims to bring the artist's notebook to life, taking visitors on a journey through the design process, while conveying the sense of ideas and inspiration flowing in to the design process.`,
@@ -38,7 +36,8 @@ export default [
       `Where possible, style changes are limited to opacity and transforms to avoid relayouts. Opacity changes only ever span between 0.01 and 0.99 to ensure these can be handled by the *compositer thread* alone`,
       `Scroll performance is maintained by keeping per-frame browser processing within the 16.66ms that 60FPS requires. Instead of attaching many scroll handlers for animations, a single *passive scroll handler* updates a number of *CSS variables* on the root element. CSS is then able to quickly recalculate transforms`,
       `Through careful use of *will-change*, preloading of larger images and management of *rendering layers*, including hoisting intensive animations to the GPU layer completely, the site avoids constant repaints when elements overlap. This ensures users maintain a high FPS, even on lower spec machines.`
-    ]
+    ],
+    images: ['1', '2', '3', '4']
   },
   {
     title: 'Sheffield Christmas Trail',
@@ -104,7 +103,7 @@ export default [
     slug: 'lifeskills',
     desc: 'A world for young learners',
     year: '2017',
-    role: 'CSS',
+    role: 'WordPress',
     url: 'https://learnaliving.co.uk/',
     type: 'embed',
     info: [
@@ -114,36 +113,9 @@ export default [
       `LifeSkills works with those from poor and disadvantaged backgrounds, therefore emphasis on [progressive enhancement] to keep site usable on older and lower spec devices.`,
       `Providing such a visually rich homepage within a 2.5s [page load budget] on a 3G connection required all graphics to be vectors, with line complexity reduced via SVGO to reduce file size.`,
       `Ongoing maintenance handled by non-technical inhouse team, therefore every page element built around custom meta fields and post type relationships in order to exposed them to the WordPress CMS.`
-    ]
-  },
-  {
-    title: 'SDL Cloud',
-    slug: 'sdl-language-cloud',
-    desc: '##',
-    year: '2017',
-    role: 'REST',
-    info: [
-      `Official WordPress plugin for industry leading cloud translation engine, allowing customers to instantly send and manage post translations from within the WordPress admin CMS.`,
-      `Work tested with and deployed by Intel's marketing teams to deliver multi-lingual blog copy.`
     ],
-    notes: [
-      `Lack of multipart/form data support in wp_remote_post (as of July 2017) required custom CURL workarounds`,
-      `WP Multisite baked-in for centralised management/delegation to international blogging network`
-    ]
-  },
-  {
-    title: 'Crooked',
-    slug: 'crooked-beverage-co',
-    desc: 'National consumer launch',
-    year: '2016',
-    role: 'PHP',
-    info: [
-      `Brand website to accompany high-profile national launch of a new alcoholic drink.`,
-      `Each product had an accompanying world created by illustrator Lisa O'Hara, which the website focused on and brought to life.`
-    ],
-    notes: [
-      'For maintainability reasons, entire project had to be built in PHP and CSS, despite suitability for a framework such as React',
-      'No internal resource for creating more than a handful of animations, therefore use of CSS transforms to simulate animations essential'
+    images: [
+      'home', 'menu', 'course', 'employers'
     ]
   }
 ]

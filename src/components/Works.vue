@@ -119,7 +119,7 @@ export default {
   .work__title::before,
   .work__title::after {
     content: 'Index';
-    display: inline-flex;
+    display: inline-block;
     max-height: 0px;
     max-width: 0px;
     margin-right: 0px;
@@ -127,7 +127,7 @@ export default {
     overflow: hidden;
   }
   .work__title::after {
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 0;
   }
