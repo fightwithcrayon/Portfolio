@@ -5,7 +5,8 @@
     <p class="bio__paragraph">
       Get in touch:
       <a class="bio__link" href="mailto:contact@andrewthomashill.co.uk">English</a> /
-      <a class="bio__link" href="mailto:habla@andrewthomashill.co.uk">Español</a>
+      <a class="bio__link" href="mailto:habla@andrewthomashill.co.uk">Español</a> /
+      <a class="bio__link" href="https://github.com/fightwithcrayon">GitHub</a>
     </p>
   </div>
 </template>

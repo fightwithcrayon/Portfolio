@@ -42,7 +42,7 @@ export default [
   {
     title: 'Sheffield Christmas Trail',
     slug: 'sheffield-christmas-trail',
-    desc: 'An app for the festive season',
+    desc: 'A festive retail experience',
     year: '2018',
     role: 'Mobile',
     info: [
@@ -97,6 +97,18 @@ export default [
       'Local HTTP demon to stream map tiles without data connection',
       'Cordova mobile framework wrapper'
     ]
+  },
+  {
+    title: 'Crooked Beverage co',
+    slug: false,
+    desc: '',
+    year: '2017',
+    role: 'React',
+    url: 'https://learnaliving.co.uk/',
+    type: 'embed',
+    info: [],
+    notes: [],
+    images: []
   },
   {
     title: 'LifeSkills',
