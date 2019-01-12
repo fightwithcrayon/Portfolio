@@ -3,8 +3,10 @@
     <div class="project">
       <Nav class="project__nav" :child="project.title" />
       <div class="project__info" v-html="info"></div>
-      <div class="project__notes" v-html="notes" />
-      <Visuals class="project__visual" :project="project" v-if="pageReady" />
+      <div class="project__notes" v-html="notes" v-if="notes" />
+      <div class="project__visual" v-if="pageReady" >
+        <Visuals :project="project" v-if="project.images"/>
+      </div>
     </div>
   </transition>
 </template>
@@ -34,17 +36,16 @@ export default {
       return this.project.info.map(n => `<p>${n}</p>`).join('')
     },
     notes () {
-      if (!this.project.notes) return
-      let info = `<h2>Development notes</h2>`
-      let notes = this.project.notes.map(n => `<li>${n}</li>`).join('')
-      info += `<ul>${notes}</ul>`
-      if (this.project.url) {
-        info += typeof this.project.url === 'string'
-          ? `<a href="${this.project.url}" target="_blank">Visit live site</a>`
-          : Object.keys(this.project.url).map(k => `<a href="${this.project.url[k]}" target="_blank">${k}</a>`).join(' / ')
-      }
-      return info
+      let notes = this.project.notes || this.project.technology || false
+      if (!notes) return false
+      let title = `<h2 class="project__heading project__notes-title">${this.project.notes ? 'Development notes' : 'Technology Overview'}</h2>`
+      return `${title} <ul>${notes.map(n => `<li>${n}</li>`).join('')}</ul>`
     }
+  },
+  beforeRouteEnter (to, from, next) {
+    next(vm => {
+      vm.pageReady = (!from.name)
+    })
   },
   methods: {
     _afterEnter () {
@@ -66,7 +67,7 @@ export default {
   @media (min-width: $xl) {
     display: grid;
     grid-template-areas:
-      "nav nav"
+      "nav visual"
       "info visual"
       "notes visual";
     grid-template-columns: 1fr 1fr;
@@ -86,15 +87,19 @@ export default {
     width: 100%;
   }
   &__visual {
-    grid-area: visual;
     width: 100%;
     @media (min-width: $xl) {
       position: fixed;
-      top: vr(2);
+      top: 50%;
       left: calc(50% + #{vr(1)});
       right: vr(1);
+      transform: translateY(-50%);
       width: auto;
     }
+  }
+  &__heading {
+    font-style: italic;
+    opacity: 0.6;
   }
 }
 .project__visual-embed {
@@ -121,6 +126,31 @@ export default {
   }
 }
 .fade-enter {
+  opacity: 0;
+  .project__info,
+  .project__visual,
+  .project__notes {
+    opacity: 0;
+  }
+}
+.fade-leave-active {
+  transition: opacity 300ms linear;
+  position: fixed;
+  top: vr(0.5);
+  left: vr(0.5);
+  right: vr(0.5);
+  width: auto;
+  @media (min-width: $md) {
+    left: vr(1);
+    right: vr(1);
+  }
+  .project__info,
+  .project__visual,
+  .project__notes {
+    transition: opacity 300ms linear;
+  }
+}
+.fade-leave-to {
   opacity: 0;
   .project__info,
   .project__visual,
