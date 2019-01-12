@@ -3,7 +3,7 @@ module.exports = {
   configureWebpack: {
     devServer: {
       clientLogLevel: 'info',
-      host: 'localhost',
+      host: '127.0.0.1',
       watchOptions: {
         poll: true
       }

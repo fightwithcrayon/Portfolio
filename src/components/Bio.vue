@@ -21,13 +21,13 @@ export default {
 <style lang="scss">
 .bio {
   @media (min-width: $md) {
-    padding-right: 25%;
+    padding-right: 20%;
   }
   @media (min-width: $lg) {
     padding-right: vr(1);
   }
   @media (min-width: $xl) {
-    padding-right: 25%;
+    padding-right: 20%;
   }
   &__paragraph:not(:last-child) {
     margin-bottom: vr(0.5);

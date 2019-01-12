@@ -65,7 +65,7 @@ export default {
     }
     &-cell {
       display: table-cell;
-      vertical-align: middle;
+      //vertical-align: middle;
       p, h2 {
         display: inline-block;
         @include link_underline;
@@ -136,9 +136,54 @@ export default {
   opacity: 0.4;
   cursor: default;
 }
+
+.index-leave-active {
+  .works__row--active {
+    .work__desc,
+    .work_role,
+    .work_year {
+      transition: opacity 300ms;
+    }
+    .work__title {
+      transition: transform 300ms linear 1500ms;
+    }
+    .work__title::before,
+    .work__title::after {
+      transition: all 300ms linear 1500ms;
+    }
+  }
+}
+.index-leave-to {
+  .works__row--active {
+    animation-play-state: running;
+    .work__desc,
+    .work__role,
+    .work__year {
+      opacity: 0;
+    }
+    .work__title {
+      transform: translateX(vr(1));
+    }
+    .work__title::before,
+    .work__title::after {
+      max-width: 100%;
+    }
+    .work__title::after {
+      max-height: 100%;
+      transform: translateX(vr(-1));
+      opacity: 1;
+    }
+  }
+}
+
 @keyframes becomeNavLegacy {
   0% {
     position: fixed;
+    line-height: vr(1);
+  }
+  99% {
+    position: fixed;
+    top: vr(0.5);
     line-height: vr(1);
   }
   100% {
@@ -150,6 +195,11 @@ export default {
 @keyframes becomeNav {
   0% {
     position: fixed;
+    line-height: vr(1);
+  }
+  99% {
+    position: fixed;
+    transform: translateY(calc(var(--offsetTop) + #{vr(0.5)}));
     line-height: vr(1);
   }
   100% {

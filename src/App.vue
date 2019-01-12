@@ -11,13 +11,20 @@ export default {
 
 <style lang="scss">
 @font-face {
-  font-family: 'Graphik';
+  font-family: 'Graphik Web';
   font-weight: 400;
-  src: local('Graphik Regular Web'), local('Graphik Web'), local('Graphik Regular'), local('Graphik'),
-       url('./assets/fonts/Graphik-Regular-Web.woff') format('woff');
+  src:  local('Graphik Regular Web'),
+        local('Graphik Web'),
+        url('./assets/fonts/Graphik-Regular-Web.woff') format('woff'),
+        local('Graphik Regular'),
+        local('Graphik');
 }
 body, html, h1, h2, h3, h4, h5, h6, p, ul li, a {
   margin: 0;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
   padding: 0;
   font-size: inherit;
   line-height: inherit;
@@ -31,7 +38,7 @@ body {
   line-height: $line-height;
   font-weight: $font-weight-regular;
   color: $text-color;
-  font-family: 'Graphik', Helvetica, Arial, sans-serif;
+  font-family: 'Graphik Web', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: vr(0.5);

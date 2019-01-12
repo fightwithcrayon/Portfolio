@@ -8,7 +8,7 @@
       <img v-for="(img, i) in readyImages" :key="i" class="rotator__image"
         :srcset="imageSrcset(img)"
         sizes="(min-width: 1080px) 50vw, 100vw"
-        @load="_imageLoaded" />
+        @load="(e) => _imageLoaded(e, i)" />
     </div>
   </div>
 </template>
@@ -26,6 +26,7 @@ export default {
       lines: {},
       mask: false,
       loaded: [],
+      loadedIndex: [],
       paused: false,
       stopped: false,
       rotator: false,
@@ -67,7 +68,9 @@ export default {
     window.removeEventListener('resize', this._resizeCanvas)
   },
   methods: {
-    _imageLoaded (e) {
+    _imageLoaded (e, i) {
+      if (this.loadedIndex.includes(i)) return
+      this.loadedIndex.push(i) // In true Safari form, bug keeps firing loaded event. This way we stop it constantly loading Sprites – and a huge memory leak!
       let src = (e.target.currentSrc) ? e.target.currentSrc : e.target.src
       let sprite = new Sprite.fromImage(src)
       sprite.name = this.loaded.length
@@ -118,7 +121,8 @@ export default {
           height: ((frame.clientWidth * 0.5625) + (this.vr * 2)),
           view: this.$refs.target,
           resizeTo: this.$refs.stage,
-          transparent: true
+          transparent: true,
+          forceFXAA: true
         })
       }
       this.app.renderer.autoResize = true
@@ -127,16 +131,15 @@ export default {
       this.transition.blur.autoFit = false
 
       let mask = new Graphics()
-      mask.beginFill(0x000000)
-      mask.lineStyle(2, 0xffffff)
+      mask.beginFill(0x141414)
       mask.drawRect(this.vr, this.vr, frame.clientWidth, (frame.clientWidth * 0.5625))
       mask.endFill()
       this.mask = mask
 
       let outline = new Graphics()
-      outline.beginFill(0x000000)
-      outline.lineStyle(2, 0xffffff)
-      outline.drawRect(this.vr, this.vr, frame.clientWidth, (frame.clientWidth * 0.5625))
+      outline.beginFill(0x141414)
+      outline.lineStyle(1, 0xffffff)
+      outline.drawRect(this.vr + 1, this.vr + 1, frame.clientWidth - 1, (frame.clientWidth * 0.5625) - 1)
       outline.endFill()
       this.transition.outline = outline
 
@@ -199,25 +202,24 @@ export default {
       if (thisVertical > this.lines.bottomPos) thisVertical = this.lines.bottomPos
 
       this.lines.one.clear()
-      this.lines.one.lineStyle(2, 0xffffff)
-      this.lines.one.moveTo(this.vr, this.vr)
-      this.lines.one.lineTo(thisHorizontal, this.vr)
+      this.lines.one.lineStyle(1, 0xffffff)
+      this.lines.one.moveTo(this.vr, this.vr + 1)
+      this.lines.one.lineTo(thisHorizontal, this.vr + 1)
 
       this.lines.two.clear()
-      this.lines.two.lineStyle(2, 0xffffff)
+      this.lines.two.lineStyle(1, 0xffffff)
       this.lines.two.moveTo(this.lines.rightPos, this.vr)
       this.lines.two.lineTo(this.lines.rightPos, thisVertical)
 
       this.lines.three.clear()
-      this.lines.three.lineStyle(2, 0xffffff)
+      this.lines.three.lineStyle(1, 0xffffff)
       this.lines.three.moveTo(this.lines.rightPos, this.lines.bottomPos)
       this.lines.three.lineTo((this.lines.rightPos - thisHorizontal), this.lines.bottomPos)
 
       this.lines.four.clear()
-      this.lines.four.lineStyle(2, 0xffffff)
-      this.lines.four.moveTo(this.vr, this.lines.bottomPos)
-      this.lines.four.lineTo(this.vr, this.lines.bottomPos - thisVertical)
-
+      this.lines.four.lineStyle(1, 0xffffff)
+      this.lines.four.moveTo(this.vr + 1, this.lines.bottomPos)
+      this.lines.four.lineTo(this.vr + 1, this.lines.bottomPos - thisVertical)
       this.app.renderer.render(this.app.stage)
       requestAnimationFrame(this.animateIntro)
     },
@@ -239,6 +241,7 @@ export default {
       if (!this.app.stage || !this.app.ticker.started) return false
       if (this.transition.alpha <= 0) {
         this.app.stage.removeChildren()
+        this.lines = null
         this.app.stage.addChild(this.transition.outline)
         this.app.stage.addChild(this.loaded[this.index])
         this.transition.newSlide = this.app.stage.getChildByName(this.index)
@@ -246,7 +249,6 @@ export default {
         this.transitionIn()
         return
       }
-      let oldSlideIndex = (this.index === 0) ? (this.images.length - 1) : (this.index - 1)
       this.transition.exitingSlide.alpha = this.transition.alpha
       this.transition.alpha -= 0.01
 
