@@ -139,7 +139,7 @@ export default {
       let outline = new Graphics()
       outline.beginFill(0x141414)
       outline.lineStyle(1, 0xffffff)
-      outline.drawRect(this.vr + 1, this.vr + 1, frame.clientWidth - 1, (frame.clientWidth * 0.5625) - 1)
+      outline.drawRect(this.vr + 1, this.vr + 1, frame.clientWidth - 1, (frame.clientWidth * 0.5625) - 2)
       outline.endFill()
       this.transition.outline = outline
 
@@ -213,8 +213,8 @@ export default {
 
       this.lines.three.clear()
       this.lines.three.lineStyle(1, 0xffffff)
-      this.lines.three.moveTo(this.lines.rightPos, this.lines.bottomPos)
-      this.lines.three.lineTo((this.lines.rightPos - thisHorizontal), this.lines.bottomPos)
+      this.lines.three.moveTo(this.lines.rightPos, this.lines.bottomPos - 1)
+      this.lines.three.lineTo((this.lines.rightPos - thisHorizontal), this.lines.bottomPos - 1)
 
       this.lines.four.clear()
       this.lines.four.lineStyle(1, 0xffffff)
