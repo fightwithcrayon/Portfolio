@@ -41,6 +41,7 @@ body {
   font-family: 'Graphik Web', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
   margin: vr(0.5);
   @media (min-width: $md) {
     margin: vr(0.5) vr(1);
