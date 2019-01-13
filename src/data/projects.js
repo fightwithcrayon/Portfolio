@@ -83,7 +83,10 @@ module.exports = [
     url: {
       'Party for the People': 'https://tickets.partyforthepeople.org/',
       'Tickets for Good': 'https://events.ticketsforgood.co.uk/'
-    }
+    },
+    images: [
+      'home', 'event', 'checkout', 'admin', 'tickets'
+    ]
   },
   {
     title: 'Crack in the Road',
