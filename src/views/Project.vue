@@ -12,9 +12,9 @@
 </template>
 
 <script>
-import projects from '@/data/projects.js'
 import Nav from '@/components/Nav.vue'
 import Visuals from '@/components/Visuals.vue'
+const projects = require('@/data/projects.js')
 
 export default {
   name: 'Project',

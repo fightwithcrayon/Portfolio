@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import data from '@/data/projects.js'
+const data = require('@/data/projects.js')
 export default {
   name: 'Works',
   data () {
