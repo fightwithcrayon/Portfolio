@@ -22,7 +22,6 @@ export default {
   },
   methods: {
     beforeEnter () {
-      console.log('Fired')
       this.$root.$emit('readyForScroll')
     }
   }
