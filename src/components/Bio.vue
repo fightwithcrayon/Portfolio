@@ -6,7 +6,7 @@
       Get in touch:
       <a class="bio__link" href="mailto:contact@andrewthomashill.co.uk">English</a> /
       <a class="bio__link" href="mailto:habla@andrewthomashill.co.uk">Español</a> /
-      <a class="bio__link" href="https://github.com/fightwithcrayon" target="_blank">GitHub</a>
+      <a class="bio__link" href="https://github.com/fightwithcrayon" target="_blank" rel="noopener">GitHub</a>
     </p>
   </div>
 </template>
