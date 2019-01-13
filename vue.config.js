@@ -15,7 +15,6 @@ module.exports = {
         staticDir: path.join(__dirname, 'dist'),
         routes: routes,
         renderer: new Renderer({
-          timeout: 0,
           maxConcurrentRoutes: 1,
           renderAfterTime: 5000,
           headless: false
