@@ -119,7 +119,7 @@ export default {
   .work__title::before,
   .work__title::after {
     content: 'Index';
-    display: inline-block;
+    display: block;
     max-height: 0px;
     max-width: 0px;
     margin-right: 0px;
@@ -162,7 +162,7 @@ export default {
       opacity: 0;
     }
     .work__title {
-      transform: translateX(vr(1));
+      transform: translateX(vr(2.5));
     }
     .work__title::before,
     .work__title::after {
@@ -170,7 +170,7 @@ export default {
     }
     .work__title::after {
       max-height: 100%;
-      transform: translateX(vr(-1));
+      transform: translateX(vr(-2.5));
       opacity: 1;
     }
   }
