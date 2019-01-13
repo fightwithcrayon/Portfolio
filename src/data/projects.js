@@ -93,7 +93,7 @@ module.exports = [
     slug: 'crack-in-the-road',
     desc: 'Award-winning culture',
     year: '2017',
-    role: 'Co-founder',
+    role: 'Vue',
     url: 'https://www.crackintheroad.com',
     info: [
       `Crack in the Road is an independent music and culture site, founded in 2010 and active until 2017.`,
