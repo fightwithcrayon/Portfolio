@@ -1,6 +1,6 @@
 <template>
-  <transition name="index" mode="out-in">
-    <div class="home">
+  <transition name="index" mode="out-in" @after-leave="beforeEnter" appear>
+    <div class="home test index-leave-active index-leave-t">
       <Nav class="home__nav" />
       <Bio class="home__bio"/>
       <NowPlaying class="home__np"/>
@@ -19,6 +19,11 @@ export default {
   name: 'Home',
   components: {
     Bio, Nav, NowPlaying, Works
+  },
+  methods: {
+    beforeEnter () {
+      this.$root.$emit('readyForScroll')
+    }
   }
 }
 </script>
@@ -59,17 +64,6 @@ export default {
   .works__row:not(.works__row--active) {
     transition: opacity 300ms;
   }
-  .works__row--active {
-    .work__desc,
-    .work_role,
-    .work_year {
-      transition: opacity 300ms;
-    }
-    .work__title::before,
-    .work__title::after {
-      transition: all 300ms linear 1500ms;
-    }
-  }
 }
 .index-leave-to {
   .nav,
@@ -78,22 +72,36 @@ export default {
   .works__row:not(.works__row--active) {
     opacity: 0 !important;
   }
-  .works__row--active {
-    animation-play-state: running;
-    .work__desc,
-    .work__role,
-    .work__year {
-      opacity: 0;
+}
+.index-enter-active {
+  transition: opacity 500ms linear 300ms;
+  position: fixed;
+  top: vr(0.5);
+  left: vr(0.5);
+  right: vr(0.5);
+  width: auto;
+  @media (min-width: $md) {
+    left: vr(1);
+    right: vr(1);
+  }
+  .home__bio,
+  .home__np,
+  .works__row {
+    transition: opacity 300ms ease-in 300ms;
+  }
+  .works__row {
+    @for $i from 1 through 10 {
+      &:nth-child(#{$i}) {
+        transition-delay: calc(1ms * (500 + #{$i * 100}));
+      }
     }
-    .work__title::before,
-    .work__title::after {
-      max-height: 100%;
-      max-width: 100%;
-      margin-right: vr(1);
-    }
-    .work__title::after {
-      opacity: 1;
-    }
+  }
+}
+.index-enter {
+  .home__bio,
+  .home__np,
+  .works__row {
+    opacity: 0;
   }
 }
 </style>

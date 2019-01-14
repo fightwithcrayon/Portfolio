@@ -23,6 +23,9 @@ export default {
   &__crumb-active {
     @include link_underline;
   }
+  &__crumb-index {
+    width: vr(1.5);
+  }
   &__crumb-child {
     position: relative;
     margin-left: vr(1);

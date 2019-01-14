@@ -8,10 +8,12 @@ Vue.use(VueRouter)
 
 const routes = [{
   path: '/',
+  name: 'Index',
   component: Home
 },
 {
   path: '/project/:slug',
+  name: 'Project',
   component: Project
 }]
 
@@ -19,7 +21,16 @@ const routes = [{
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes
+  routes,
+  scrollBehavior (to, from, savedPosition) {
+    if (to.name === 'Project' && from.name === 'Index') {
+      return new Promise(resolve => {
+        router.app.$root.$once('readyForScroll', () => {
+          resolve({ x: 0, y: 0 })
+        })
+      })
+    }
+  }
 })
 
 export default router
