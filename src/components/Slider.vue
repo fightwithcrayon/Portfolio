@@ -4,7 +4,7 @@
       <canvas class="rotator__stage-target" ref="target" />
     </div>
     <div class="rotator__live" v-html="url"></div>
-    <div class="rotator__images">
+    <div :class="`rotator__images`">
       <img v-for="(img, i) in readyImages" :key="i" class="rotator__image"
         :srcset="imageSrcset(img)"
         sizes="(min-width: 1080px) 50vw, 100vw"
@@ -17,7 +17,7 @@
 import { Application, filters as Filters, Graphics, Sprite } from 'pixi.js'
 
 export default {
-  name: 'Visuals',
+  name: 'Slider',
   props: ['project'],
   data () {
     return {
@@ -45,10 +45,10 @@ export default {
   },
   computed: {
     images () {
-      return this.$props.project.images || []
+      return this.project.images || []
     },
     readyImages () {
-      return this.$props.project.images.filter((img, i) => (this.loaded.length >= i))
+      return this.project.images.filter((img, i) => (this.loaded.length >= i))
     },
     url () {
       if (this.project.url) {
@@ -98,10 +98,10 @@ export default {
       }
     },
     imageSrc (img) {
-      return require(`@/assets/projects/${this.$props.project.slug}/${img}/IMG_1920.png`)
+      return require(`@/assets/projects/${this.project.slug}/${img}/IMG_1920.png`)
     },
     imageSrcset (img) {
-      return this.sizes.map(size => `${require(`@/assets/projects/${this.$props.project.slug}/${img}/IMG_${size}.png`)} ${size}w`)
+      return this.sizes.map(size => `${require(`@/assets/projects/${this.project.slug}/${img}/IMG_${size}.png`)} ${size}w`)
     },
     imageReadyToDisplay (img) {
       return (this.loaded.includes(img))
@@ -118,10 +118,10 @@ export default {
         }
         return
       } else {
-        this.width = (this.project.mobile) ? (frame.clientHeight/ 2): frame.clientWidth
-        this.height = (this.project.mobile) ? frame.clientHeight : (frame.clientWidth * 0.5625)
+        this.width = frame.clientWidth
+        this.height = (frame.clientWidth * 0.5625)
         this.app = new Application({
-          width: (frame.clientWidth + (this.vr * 2)),
+          width: (this.width + (this.vr * 2)),
           height: (this.height + (this.vr * 2)),
           view: this.$refs.target,
           resizeTo: this.$refs.stage,
@@ -136,14 +136,14 @@ export default {
 
       let mask = new Graphics()
       mask.beginFill(0x141414)
-      mask.drawRect(this.vr, this.vr, frame.clientWidth, this.height)
+      mask.drawRect(this.vr, this.vr, this.width, this.height)
       mask.endFill()
       this.mask = mask
 
       let outline = new Graphics()
       outline.beginFill(0x141414)
       outline.lineStyle(1, 0xffffff)
-      outline.drawRect(this.vr + 1, this.vr + 1, frame.clientWidth - 1, this.height - 2)
+      outline.drawRect(this.vr + 1, this.vr + 1, this.width - 1, this.height - 2)
       outline.endFill()
       this.transition.outline = outline
 
@@ -156,8 +156,8 @@ export default {
     },
     resizePIXI () {
       let frame = this.$refs.frame
-      this.width = (this.project.mobile) ? (frame.clientHeight/ 2): frame.clientWidth
-      this.height = (this.project.mobile) ? frame.clientHeight : (frame.clientWidth * 0.5625)
+      this.width = frame.clientWidth
+      this.height = (frame.clientWidth * 0.5625)
       this.app.renderer.view.style.width = (this.width + (this.vr * 2)) + 'px'
       this.app.renderer.view.style.height = (this.height + (this.vr * 2)) + 'px'
     },
