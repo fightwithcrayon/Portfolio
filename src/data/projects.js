@@ -13,6 +13,7 @@ module.exports = [
     desc: 'Festive retail experience',
     year: '2018',
     role: 'Mobile',
+    mobile: true,
     info: [
       `Commissioned by the City of Sheffield's retail development group, the Christmas Trail app brought to life a series of local characters in order to guide children on a treasure hunt across the city – and increase footfall.`,
       `Ran from 24th November – 24th December 2018`
@@ -45,13 +46,14 @@ module.exports = [
   {
     title: 'Bricktropolis',
     slug: 'bricktropolis',
-    desc: 'Interative LEGO models',
+    desc: 'Interactive LEGO models',
     year: '2018',
     role: 'Mobile',
     url: {
       'Play Store': 'https://play.google.com/store/apps/details?id=io.blackeye.bricktropolis',
       'App Store': 'https://itunes.apple.com/gb/app/bricktropolis/id1418561757'
     },
+    mobile: true,
     info: [
       `Bricktropolis saw 21 Lego replicas of world monuments erected across the City of Sheffield, between 4th – 17th August 2018.`,
       `App was commissioned for visitors to log their progress, get background information on each model, and take advantage of retail offers.`,

@@ -32,14 +32,14 @@ export default {
     },
     info () {
       if (!this.project.info) return
-      if (typeof this.project.info === 'string') return `<p>${this.project.info}</p>`
-      return this.project.info.map(n => `<p>${n}</p>`).join('')
+      let heading = `<h2 class="project__heading project__info-title">Intro</h2>`
+      return (typeof this.project.info === 'string') ? `${heading}<p>${this.project.info}</p>` : heading + this.project.info.map(n => `<p>${n}</p>`).join('')
     },
     notes () {
       let notes = this.project.notes || this.project.technology || false
       if (!notes) return false
       let title = `<h2 class="project__heading project__notes-title">${this.project.notes ? 'Development notes' : 'Technology Overview'}</h2>`
-      return `${title} <ul>${notes.map(n => `<li>${n}</li>`).join('')}</ul>`
+      return `${title} <ul class="project__notes-list ${this.project.technology && 'project__notes-tech' }">${notes.map(n => `<li>${n}</li>`).join('')}</ul>`
     }
   },
   beforeRouteEnter (to, from, next) {
@@ -85,6 +85,19 @@ export default {
     grid-area: notes;
     margin-bottom: vr(1);
     width: 100%;
+    &-list {
+      list-style: none;
+      padding-left: 0;
+      li {
+        margin-bottom: vr(0.5);
+      }
+    }
+    &-tech {
+      @media (min-width: $md) {
+        list-style: disc;
+        padding-left: vr(1);
+      }
+    }
   }
   &__visual {
     width: 100%;

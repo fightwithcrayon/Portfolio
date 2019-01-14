@@ -22,6 +22,7 @@ export default {
   data () {
     return {
       app: false,
+      height: 0,
       index: 0,
       lines: {},
       mask: false,
@@ -38,7 +39,8 @@ export default {
         outline: false
       },
       verticalSize: 1080,
-      vr: 38
+      vr: 38,
+      width: 0
     }
   },
   computed: {
@@ -116,9 +118,11 @@ export default {
         }
         return
       } else {
+        this.width = (this.project.mobile) ? (frame.clientHeight/ 2): frame.clientWidth
+        this.height = (this.project.mobile) ? frame.clientHeight : (frame.clientWidth * 0.5625)
         this.app = new Application({
           width: (frame.clientWidth + (this.vr * 2)),
-          height: ((frame.clientWidth * 0.5625) + (this.vr * 2)),
+          height: (this.height + (this.vr * 2)),
           view: this.$refs.target,
           resizeTo: this.$refs.stage,
           transparent: true,
@@ -132,14 +136,14 @@ export default {
 
       let mask = new Graphics()
       mask.beginFill(0x141414)
-      mask.drawRect(this.vr, this.vr, frame.clientWidth, (frame.clientWidth * 0.5625))
+      mask.drawRect(this.vr, this.vr, frame.clientWidth, this.height)
       mask.endFill()
       this.mask = mask
 
       let outline = new Graphics()
       outline.beginFill(0x141414)
       outline.lineStyle(1, 0xffffff)
-      outline.drawRect(this.vr + 1, this.vr + 1, frame.clientWidth - 1, (frame.clientWidth * 0.5625) - 2)
+      outline.drawRect(this.vr + 1, this.vr + 1, frame.clientWidth - 1, this.height - 2)
       outline.endFill()
       this.transition.outline = outline
 
@@ -151,13 +155,16 @@ export default {
       this.stopped = true
     },
     resizePIXI () {
-      this.app.renderer.view.style.width = (this.$refs.frame.clientWidth + (this.vr * 2)) + 'px'
-      this.app.renderer.view.style.height = ((this.$refs.frame.clientWidth * 0.5625) + (this.vr * 2)) + 'px'
+      let frame = this.$refs.frame
+      this.width = (this.project.mobile) ? (frame.clientHeight/ 2): frame.clientWidth
+      this.height = (this.project.mobile) ? frame.clientHeight : (frame.clientWidth * 0.5625)
+      this.app.renderer.view.style.width = (this.width + (this.vr * 2)) + 'px'
+      this.app.renderer.view.style.height = (this.height + (this.vr * 2)) + 'px'
     },
     launchRotator () {
       if (!this.app.stage) return false
-      this.lines.rightPos = this.$refs.target.clientWidth - this.vr
-      this.lines.bottomPos = (this.$refs.frame.clientWidth * 0.5625) + this.vr
+      this.lines.rightPos = this.width + this.vr
+      this.lines.bottomPos = this.height + this.vr
 
       let line = new Graphics()
       line.name = 'One'

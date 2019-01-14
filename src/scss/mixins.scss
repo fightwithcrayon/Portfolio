@@ -30,7 +30,7 @@
 * *
 */
 @function vr($multiple) {
-  @return #{$baseline * $multiple};
+  @return calc((#{$font-size} * #{$line-height}) * #{$multiple});
 }
 
 @mixin target_ie11 () {
