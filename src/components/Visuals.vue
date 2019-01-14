@@ -1,24 +1,25 @@
 <template>
-  <div :class="`rotator step--${this.index}`" ref="frame">
+  <div class="rotator" ref="frame">
     <div class="rotator__stage" ref="stage">
       <canvas class="rotator__stage-target" ref="target" />
     </div>
     <div class="rotator__live" v-html="url"></div>
     <div class="rotator__images">
-      <img v-for="(img, i) in readyImages" :key="i" class="rotator__image"
-        :srcset="imageSrcset(img)"
-        sizes="(min-width: 1080px) 50vw, 100vw"
-        @load="(e) => _imageLoaded(e, i)" />
+      <Img v-for="(img, i) in images" :key="i" class="rotator__image" :path="`${project.slug}/${img}`" @load="(e) => _imageLoaded(e, i)" />
     </div>
   </div>
 </template>
 
 <script>
 import { Application, filters as Filters, Graphics, Sprite } from 'pixi.js'
+import Img from '@/components/Img.vue'
 
 export default {
   name: 'Visuals',
   props: ['project'],
+  components: {
+    Img
+  },
   data () {
     return {
       app: false,
@@ -30,7 +31,6 @@ export default {
       paused: false,
       stopped: false,
       rotator: false,
-      sizes: ['2560', '1920', '1600', '1440', '1280', '960', '800', '720', '640', '480', '360'],
       transition: {
         alpha: 0,
         blur: false,
@@ -72,7 +72,8 @@ export default {
       if (this.loadedIndex.includes(i)) return
       this.loadedIndex.push(i) // In true Safari form, bug keeps firing loaded event. This way we stop it constantly loading Sprites – and a huge memory leak!
       let src = (e.target.currentSrc) ? e.target.currentSrc : e.target.src
-      let sprite = new Sprite.fromImage(src)
+      console.log('Image loaded', src)
+      let sprite = new Sprite.fromImage(src) /* eslint-disable-line */
       sprite.name = this.loaded.length
       sprite.width = this.$refs.frame.clientWidth
       sprite.height = this.$refs.frame.clientWidth * 0.5625
@@ -94,12 +95,6 @@ export default {
       if (window.innerWidth >= this.verticalSize) {
         this.resizePIXI()
       }
-    },
-    imageSrc (img) {
-      return require(`@/assets/projects/${this.$props.project.slug}/${img}/IMG_1920.png`)
-    },
-    imageSrcset (img) {
-      return this.sizes.map(size => `${require(`@/assets/projects/${this.$props.project.slug}/${img}/IMG_${size}.png`)} ${size}w`)
     },
     imageReadyToDisplay (img) {
       return (this.loaded.includes(img))
@@ -139,7 +134,7 @@ export default {
       let outline = new Graphics()
       outline.beginFill(0x141414)
       outline.lineStyle(1, 0xffffff)
-      outline.drawRect(this.vr + 1, this.vr + 1, frame.clientWidth - 1, (frame.clientWidth * 0.5625) - 2)
+      outline.drawRect(this.vr + 1, this.vr + 2, frame.clientWidth - 1, (frame.clientWidth * 0.5625) - 2)
       outline.endFill()
       this.transition.outline = outline
 
@@ -203,7 +198,7 @@ export default {
 
       this.lines.one.clear()
       this.lines.one.lineStyle(1, 0xffffff)
-      this.lines.one.moveTo(this.vr, this.vr + 1)
+      this.lines.one.moveTo(this.vr, this.vr + 2)
       this.lines.one.lineTo(thisHorizontal, this.vr + 1)
 
       this.lines.two.clear()

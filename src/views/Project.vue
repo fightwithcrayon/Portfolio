@@ -71,7 +71,7 @@ export default {
       "info visual"
       "notes visual";
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: min-content 1fr;
+    grid-template-rows: min-content min-content;
   }
   &__info {
     grid-area: info;
