@@ -13,9 +13,8 @@ $lg: 960px;
 $xl: 1080px;
 
 
-$font-size: 20px;
+$font-size: var(--font-size, 20px);
 $line-height: 1.9;
-$baseline: $font-size * $line-height;
 $font-weight-regular: 400;
 
 $blue: rgb(208, 217, 229);
