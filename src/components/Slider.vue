@@ -285,7 +285,6 @@ export default {
 
 <style lang="scss">
 .rotator {
-  border: 1px solid white;
   @media (min-width: $xl) {
     position: absolute;
     top: 0;
@@ -316,7 +315,6 @@ export default {
     line-height: 1.45;
     margin-bottom: vr(1);
     width: 100%;
-    border: 1px solid white;
     @media (min-width: $xl) {
       text-align: right;
       margin: vr(-0.5) vr(-1) 0 0;

@@ -58,7 +58,6 @@ export default {
 }
 .index-leave-active {
   transition: opacity 2000ms;
-  transition: none;
   @include target_ie11 () {
     transition: none;
   }

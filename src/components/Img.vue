@@ -14,7 +14,7 @@ export default {
       loaded: false,
       visible: false,
       desktopSizes: ['1920', '2560', '1600', '1440', '1280', '960', '800', '720', '640', '480', '360'],
-      mobileSizes: ['1125']
+      mobileSizes: ['1242', '828', '414', '207']
     }
   },
   computed: {

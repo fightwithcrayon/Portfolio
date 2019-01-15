@@ -66,7 +66,6 @@ export default {
   width: 100%;
   min-height: calc(100vh - #{vr(1)});
   box-sizing: border-box;
-  color: rgba(0,0,0,0);
   @media (min-width: $xl) {
     display: grid;
     grid-template-areas:
@@ -80,17 +79,14 @@ export default {
     grid-area: info;
     margin-bottom: vr(1);
     width: 100%;
-    border: 1px solid white;
     p {
       margin-bottom: 0.5em;
-      border: 1px solid white;
     }
   }
   &__notes {
     grid-area: notes;
     margin-bottom: vr(1);
     width: 100%;
-    border: 1px solid white;
     &-list {
       list-style: none;
       padding-left: 0;
@@ -107,7 +103,6 @@ export default {
   }
   &__visual {
     width: 100%;
-    border: 1px solid white;
     @media (min-width: $xl) {
       position: fixed;
       top: 50%;
