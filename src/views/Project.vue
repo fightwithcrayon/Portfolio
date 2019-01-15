@@ -58,6 +58,9 @@ export default {
 </script>
 
 <style lang="scss">
+.nav {
+  grid-area: nav; // Keeps PostCSS IE transpiler happy
+}
 .project {
   display: flex;
   flex-direction: column;
@@ -104,6 +107,7 @@ export default {
   &__visual {
     width: 100%;
     @media (min-width: $xl) {
+      grid-area: visual;
       position: fixed;
       top: 50%;
       left: calc(50% + #{vr(1)});

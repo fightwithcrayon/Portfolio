@@ -32,13 +32,6 @@ module.exports = [
     ]
   },
   {
-    title: 'Proxima',
-    slug: false,
-    desc: 'A guided tour of metallurgy',
-    year: '2018',
-    role: 'Vue'
-  },
-  {
     title: 'Bricktropolis',
     slug: 'bricktropolis',
     desc: 'Interactive LEGO models',
@@ -149,5 +142,5 @@ module.exports = [
     desc: 'Static illustrations come to life',
     year: '2016',
     role: 'CSS'
-  },
+  }
 ]
