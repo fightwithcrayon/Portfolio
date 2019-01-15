@@ -26,7 +26,10 @@ module.exports = [
     url: {
       'Play Store': 'https://play.google.com/store/apps/details?id=io.blackeye.christmastrail',
       'App Store': 'https://itunes.apple.com/gb/app/sheffield-christmas-trail/id1436841953'
-    }
+    },
+    images: [
+      'splash'
+    ]
   },
   {
     title: 'Simon Tegala',

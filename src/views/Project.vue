@@ -5,21 +5,23 @@
       <div class="project__info" v-html="info"></div>
       <div class="project__notes" v-html="notes" v-if="notes" />
       <div class="project__visual" v-if="pageReady" >
-        <Visuals :project="project" v-if="project.images"/>
+        <Mobile :project="project" v-if="project.images && project.mobile" />
+        <Slider :project="project" v-else-if="project.images" />
       </div>
     </div>
   </transition>
 </template>
 
 <script>
+import Mobile from '@/components/Mobile.vue'
 import Nav from '@/components/Nav.vue'
-import Visuals from '@/components/Visuals.vue'
+import Slider from '@/components/Slider.vue'
 const projects = require('@/data/projects.js')
 
 export default {
   name: 'Project',
   components: {
-    Nav, Visuals
+    Nav, Slider, Mobile
   },
   data () {
     return {

@@ -15,7 +15,7 @@ import { Application, filters as Filters, Graphics, Sprite } from 'pixi.js'
 import Img from '@/components/Img.vue'
 
 export default {
-  name: 'Visuals',
+  name: 'Slider',
   props: ['project'],
   components: {
     Img
@@ -45,10 +45,10 @@ export default {
   },
   computed: {
     images () {
-      return this.$props.project.images || []
+      return this.project.images || []
     },
     readyImages () {
-      return this.$props.project.images.filter((img, i) => (this.loaded.length >= i))
+      return this.project.images.filter((img, i) => (this.loaded.length >= i))
     },
     url () {
       if (this.project.url) {
@@ -113,10 +113,10 @@ export default {
         }
         return
       } else {
-        this.width = (this.project.mobile) ? (frame.clientHeight/ 2): frame.clientWidth
-        this.height = (this.project.mobile) ? frame.clientHeight : (frame.clientWidth * 0.5625)
+        this.width = frame.clientWidth
+        this.height = (frame.clientWidth * 0.5625)
         this.app = new Application({
-          width: (frame.clientWidth + (this.vr * 2)),
+          width: (this.width + (this.vr * 2)),
           height: (this.height + (this.vr * 2)),
           view: this.$refs.target,
           resizeTo: this.$refs.stage,
@@ -131,14 +131,14 @@ export default {
 
       let mask = new Graphics()
       mask.beginFill(0x141414)
-      mask.drawRect(this.vr, this.vr, frame.clientWidth, this.height)
+      mask.drawRect(this.vr, this.vr, this.width, this.height)
       mask.endFill()
       this.mask = mask
 
       let outline = new Graphics()
       outline.beginFill(0x141414)
       outline.lineStyle(1, 0xffffff)
-      outline.drawRect(this.vr + 1, this.vr + 1, frame.clientWidth - 1, this.height - 2)
+      outline.drawRect(this.vr + 1, this.vr + 1, this.width - 1, this.height - 2)
       outline.endFill()
       this.transition.outline = outline
 
@@ -151,8 +151,8 @@ export default {
     },
     resizePIXI () {
       let frame = this.$refs.frame
-      this.width = (this.project.mobile) ? (frame.clientHeight/ 2): frame.clientWidth
-      this.height = (this.project.mobile) ? frame.clientHeight : (frame.clientWidth * 0.5625)
+      this.width = frame.clientWidth
+      this.height = (frame.clientWidth * 0.5625)
       this.app.renderer.view.style.width = (this.width + (this.vr * 2)) + 'px'
       this.app.renderer.view.style.height = (this.height + (this.vr * 2)) + 'px'
     },
