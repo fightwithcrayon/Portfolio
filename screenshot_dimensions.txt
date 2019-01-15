@@ -16,3 +16,10 @@
 1600x900
 :screenshot IMG_1600 --dpr 1
 :screenshot IMG_800 --dpr 0.5
+
+##Mobile
+414x869 (3dpi)
+:screenshot IMG_1242 --dpr 3
+:screenshot IMG_828 --dpr 2
+:screenshot IMG_414 --dpr 1
+:screenshot IMG_207 --dpr 0.5

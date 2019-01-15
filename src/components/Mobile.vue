@@ -1,21 +1,22 @@
 <template>
   <div class="mobile">
     <div :class="`mobile__images`">
-      <img v-for="(img, i) in images" :key="i" class="rotator__image"
-        :srcset="imageSrcset(img)"
-        sizes="(min-width: 1080px) 50vw, 100vw" />
+      <Img v-for="(img, i) in images" :key="i" class="mobile__images-image" :path="`${project.slug}/${img}`" @load="(e) => _imageLoaded(e, i)" :mobile="true" />
     </div>
     <div class="mobile__live" v-html="url"></div>
   </div>
 </template>
 
 <script>
+import Img from '@/components/Img.vue'
 export default {
   name: 'Mobile',
   props: ['project'],
+  components: {
+    Img
+  },
   data () {
     return {
-      sizes: ['1125']
     }
   },
   computed: {
@@ -27,7 +28,7 @@ export default {
         let url = typeof this.project.url === 'string'
           ? `<a href="${this.project.url}" target="_blank">Live site</a>`
           : Object.keys(this.project.url).map(k => `<a href="${this.project.url[k]}" target="_blank">${k}</a>`).join(' / ')
-        return `<h2 class="project__heading project__url-title">Go to</h2>${url}`
+        return `<h2 class="project__heading project__url-title">Find on</h2>${url}`
       }
       return ''
     }
@@ -45,25 +46,30 @@ export default {
 
 <style lang="scss">
 .mobile {
+  height: auto;
+  max-height: 75vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-start;
+  align-items: center;
+  color: white;
+  text-align: center;
+  @media (min-width: $xl) {
+    height: 50vh;
+    flex-direction: column;
+    justify-content: center;
+  }
   &__images {
     width: 100%;
+    height: 100%;
     background-color: transparent;
     display: block;
-    margin: 0 0 vr(0.5);
-    @media (min-width: $xl) {
-      position: absolute;
-      top: 0;
-      left: 0;
-      opacity: 0;
-    }
+    margin-bottom: vr(0.5);
   }
   &__live {
     line-height: 1.45;
-    margin-bottom: vr(1);
-    @media (min-width: $xl) {
-      text-align: right;
-      margin: vr(-0.5) vr(-1) 0 0;
-    }
+    margin-bottom: vr(0.5);
   }
 }
 </style>

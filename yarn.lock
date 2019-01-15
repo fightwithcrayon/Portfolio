@@ -1465,7 +1465,7 @@ autoprefixer@^8.6.5:
     postcss "^6.0.23"
     postcss-value-parser "^3.2.3"
 
-autoprefixer@^9.4.2, autoprefixer@^9.4.5:
+autoprefixer@^9.4.2:
   version "9.4.5"
   resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-9.4.5.tgz#a13ccb001e4bc8837f71c3354005b42f02cc03d7"
   dependencies:
@@ -6362,13 +6362,6 @@ postcss-custom-media@^7.0.7:
 postcss-custom-properties@^8.0.9:
   version "8.0.9"
   resolved "https://registry.yarnpkg.com/postcss-custom-properties/-/postcss-custom-properties-8.0.9.tgz#8943870528a6eae4c8e8d285b6ccc9fd1f97e69c"
-  dependencies:
-    postcss "^7.0.5"
-    postcss-values-parser "^2.0.0"
-
-postcss-custom-properties@postcss/postcss-custom-properties#139/head:
-  version "8.0.8"
-  resolved "https://codeload.github.com/postcss/postcss-custom-properties/tar.gz/aa5353cccee56d411fedf1987d70da056877ad7c"
   dependencies:
     postcss "^7.0.5"
     postcss-values-parser "^2.0.0"

@@ -41,7 +41,7 @@ export default {
       let notes = this.project.notes || this.project.technology || false
       if (!notes) return false
       let title = `<h2 class="project__heading project__notes-title">${this.project.notes ? 'Development notes' : 'Technology Overview'}</h2>`
-      return `${title} <ul class="project__notes-list ${this.project.technology && 'project__notes-tech' }">${notes.map(n => `<li>${n}</li>`).join('')}</ul>`
+      return `${title} <ul class="project__notes-list ${this.project.technology && 'project__notes-tech'}">${notes.map(n => `<li>${n}</li>`).join('')}</ul>`
     }
   },
   beforeRouteEnter (to, from, next) {
@@ -66,27 +66,31 @@ export default {
   width: 100%;
   min-height: calc(100vh - #{vr(1)});
   box-sizing: border-box;
+  color: rgba(0,0,0,0);
   @media (min-width: $xl) {
     display: grid;
     grid-template-areas:
       "nav visual"
       "info visual"
       "notes visual";
+    grid-template-rows: min-content min-content 1fr;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: min-content min-content;
   }
   &__info {
     grid-area: info;
     margin-bottom: vr(1);
     width: 100%;
+    border: 1px solid white;
     p {
       margin-bottom: 0.5em;
+      border: 1px solid white;
     }
   }
   &__notes {
     grid-area: notes;
     margin-bottom: vr(1);
     width: 100%;
+    border: 1px solid white;
     &-list {
       list-style: none;
       padding-left: 0;
@@ -103,6 +107,7 @@ export default {
   }
   &__visual {
     width: 100%;
+    border: 1px solid white;
     @media (min-width: $xl) {
       position: fixed;
       top: 50%;
@@ -125,6 +130,9 @@ export default {
 }
 .fade-enter-active {
   transition: opacity 300ms linear 1800ms;
+  @include target_ie11 {
+    transition: none;
+  }
   position: fixed;
   top: vr(0.5);
   left: vr(0.5);
@@ -150,6 +158,9 @@ export default {
 }
 .fade-leave-active {
   transition: opacity 300ms linear;
+  @include target_ie11 {
+    transition: none;
+  }
   position: fixed;
   top: vr(0.5);
   left: vr(0.5);

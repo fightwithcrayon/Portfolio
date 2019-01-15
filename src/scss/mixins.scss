@@ -24,6 +24,7 @@
     grid-template-columns: repeat(12, 1fr);
   }
 }
+
 /*
 * * Calculate a responsive vertical rhythm unit * *
 * Allows us to adjust typography and VR by simply changing custom properties on :root
@@ -65,3 +66,4 @@
     grid-row: #{$start} / #{$end};
   }
 }
+

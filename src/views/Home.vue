@@ -32,10 +32,10 @@ export default {
 .home {
   @media (min-width: $lg) {
     display: grid;
-    grid-template-areas:
-      "nav np"
-      "bio np"
-      "works works";
+    grid-template:
+      "nav np" vr(1)
+      "bio np" min-content
+      "works works" min-content;
     grid-template-rows: min-content 1fr;
   }
   &__nav {
@@ -58,6 +58,10 @@ export default {
 }
 .index-leave-active {
   transition: opacity 2000ms;
+  transition: none;
+  @include target_ie11 () {
+    transition: none;
+  }
   .nav,
   .bio,
   .np,
@@ -75,6 +79,9 @@ export default {
 }
 .index-enter-active {
   transition: opacity 500ms linear 300ms;
+  @include target_ie11 {
+    transition: none;
+  }
   position: fixed;
   top: vr(0.5);
   left: vr(0.5);

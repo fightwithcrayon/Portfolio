@@ -32,21 +32,6 @@ module.exports = [
     ]
   },
   {
-    title: 'Simon Tegala',
-    slug: 'simon-tegala',
-    desc: 'Living notebook',
-    year: '2018',
-    role: 'CSS',
-    url: 'https://simontegala-flow.org/',
-    info: `Commissioned for the launch of a new sculpture on Cambridge University campus, Flow, by artist Simon Tegala. The site bring the artist's notebook to life, taking visitors on a journey through the design process, while conveying the sense of ideas and inspiration flowing in to the design process.`,
-    notes: [
-      `All CSS animations rely on opacity and transform to avoid re-layouts. Further, elements only ever animate alpha values between 0.01 and 0.99 to ensure handled by compositor thread.`,
-      `Single, passive scroll handler event adjusts a number of CSS variables on root element, to ensure per-frame Javascript processing is within 16.66ms budget that 60fps requires. CSS calc() then handles manipulations of elements on page.`,
-      `Careful management of rendering layers to avoid repaints on element overlap, hoisting intensive animations to GPU layer and offering browser optimisation hints via will-change.`
-    ],
-    images: ['1', '2', '3', '4']
-  },
-  {
     title: 'Bricktropolis',
     slug: 'bricktropolis',
     desc: 'Interactive LEGO models',
@@ -70,10 +55,32 @@ module.exports = [
     ]
   },
   {
+    title: 'Simon Tegala',
+    slug: 'simon-tegala',
+    desc: 'Living notebook',
+    year: '2018',
+    role: 'CSS',
+    url: 'https://simontegala-flow.org/',
+    info: `Commissioned for the launch of a new sculpture on Cambridge University campus, Flow, by artist Simon Tegala. The site bring the artist's notebook to life, taking visitors on a journey through the design process, while conveying the sense of ideas and inspiration flowing in to the design process.`,
+    notes: [
+      `All CSS animations rely on opacity and transform to avoid re-layouts. Further, elements only ever animate alpha values between 0.01 and 0.99 to ensure handled by compositor thread.`,
+      `Single, passive scroll handler event adjusts a number of CSS variables on root element, to ensure per-frame Javascript processing is within 16.66ms budget that 60fps requires. CSS calc() then handles manipulations of elements on page.`,
+      `Careful management of rendering layers to avoid repaints on element overlap, hoisting intensive animations to GPU layer and offering browser optimisation hints via will-change.`
+    ],
+    images: ['1', '2', '3', '4']
+  },
+  {
+    title: 'Ticket Bank',
+    slug: false,
+    desc: 'MVP to support third sector',
+    year: '2017',
+    role: 'Vue'
+  },
+  {
     title: 'Party for the People',
     slug: 'party-for-the-people',
     desc: 'Charitable ticketing',
-    year: '2018',
+    year: '2017',
     role: 'Rails',
     info: [
       `Party for the People (and its sister site, Tickets for Good) are comprehensive event management and ticketing platforms, built and maintained in Ruby on Rails.`,

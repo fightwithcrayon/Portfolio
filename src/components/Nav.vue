@@ -16,6 +16,7 @@ export default {
 <style lang="scss">
 .nav {
   grid-area: nav;
+  -ms-grid-row: 1;
   display: flex;
   flex-direction: row;
   margin-bottom: vr(1);
