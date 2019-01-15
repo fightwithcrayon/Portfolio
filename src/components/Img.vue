@@ -35,7 +35,6 @@ export default {
     },
     _onVisible (e) {
       if (e) {
-        console.log('Visible', this.$props.path)
         this.visible = true
       }
     }

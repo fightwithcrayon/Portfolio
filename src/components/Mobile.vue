@@ -29,7 +29,6 @@ export default {
       return this.project.images || []
     },
     readyImages () {
-      console.log(this.images)
       return this.images.slice(0, this.loadingIndex)
     },
     url () {

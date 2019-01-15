@@ -74,7 +74,6 @@ export default {
       if (this.loadedIndex.includes(i)) return
       this.loadedIndex.push(i) // In true Safari form, bug keeps firing loaded event. This way we stop it constantly loading Sprites – and a huge memory leak!
       let src = (e.target.currentSrc) ? e.target.currentSrc : e.target.src
-      console.log('Image loaded', src)
       let sprite = new Sprite.fromImage(src) /* eslint-disable-line */
       sprite.name = this.loaded.length
       sprite.width = this.$refs.frame.clientWidth
@@ -123,7 +122,6 @@ export default {
           transparent: true,
           forceFXAA: true
         })
-        console.log(frame, this.height)
       }
       this.app.renderer.autoResize = true
       this.transition.blur = new Filters.BlurFilter()
