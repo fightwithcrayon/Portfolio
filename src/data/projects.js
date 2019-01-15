@@ -34,7 +34,7 @@ module.exports = [
   {
     title: 'Proxima',
     slug: false,
-    desc: 'Guided tour of...metallurgy',
+    desc: 'A guided tour of metallurgy',
     year: '2018',
     role: 'Vue'
   },
