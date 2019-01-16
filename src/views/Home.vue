@@ -1,5 +1,5 @@
 <template>
-  <transition name="index" mode="out-in" @after-leave="beforeEnter" appear>
+  <transition name="index" mode="out-in" @after-leave="beforeEnter" v-on:before-appear="customHook" appear>
     <div class="home test index-leave-active index-leave-t">
       <Nav class="home__nav" />
       <Bio class="home__bio"/>
@@ -21,6 +21,9 @@ export default {
     Bio, Nav, NowPlaying, Works
   },
   methods: {
+    customHook () {
+      console.log('hook fired')
+    },
     beforeEnter () {
       this.$root.$emit('readyForScroll')
     }
@@ -67,6 +70,9 @@ export default {
   .np,
   .works__row:not(.works__row--active) {
     transition: opacity 300ms;
+    @include target_ie11 () {
+      transition: none;
+    }
   }
 }
 .index-leave-to {
@@ -95,6 +101,9 @@ export default {
   .home__np,
   .works__row {
     transition: opacity 300ms ease-in 300ms;
+    @include target_ie11 () {
+      transition: none;
+    }
   }
   .works__row {
     @for $i from 1 through 10 {
