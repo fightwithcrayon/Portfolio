@@ -31,10 +31,12 @@ export default {
     position: relative;
     margin-left: vr(1);
     &::before {
-      content: '▶';
+      content: url('../assets/triangle.svg');
       position: absolute;
       top: 50%;
       left: vr(-0.5);
+      height: vr(0.25);
+      width: vr(0.25);
       transform: translate(-50%, -50%);
       font-size: vr(0.25);
     }

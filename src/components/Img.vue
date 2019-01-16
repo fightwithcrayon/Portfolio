@@ -1,6 +1,6 @@
 <template>
-  <div :class="`image ${loaded && 'image--loaded'} ${visible && 'image--visible'} ${mobile ? 'image--mobile' : 'mobile--desktop'}`" v-observe-visibility="{callback: _onVisible, once: true}">
-    <img class="image__img" :src="imageSrc" :srcset="imageSrcset" @load="_onLoad" sizes="(min-width: 1080px) 50vw, 100vw" />
+  <div :class="`image ${loaded && 'image--loaded'} ${visible && 'image--visible'} ${mobile ? 'image--mobile' : 'image--desktop'}`" v-observe-visibility="{callback: _onVisible, once: true}">
+    <img class="image__img" :src="imageSrc" :srcset="imageSrcset" @load="_onLoad" :sizes="mobile ? '(min-width: 1080px) 25vw, 100vw' : '(min-width: 1080px) 50vw, 100vw'" />
   </div>
 </template>
 
@@ -14,7 +14,7 @@ export default {
       loaded: false,
       visible: false,
       desktopSizes: ['1920', '2560', '1600', '1440', '1280', '960', '800', '720', '640', '480', '360'],
-      mobileSizes: ['1125']
+      mobileSizes: ['1242', '828', '414', '207']
     }
   },
   computed: {
@@ -35,7 +35,6 @@ export default {
     },
     _onVisible (e) {
       if (e) {
-        console.log('Visible', this.$props.path)
         this.visible = true
       }
     }

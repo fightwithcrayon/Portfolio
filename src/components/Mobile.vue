@@ -1,7 +1,8 @@
 <template>
   <div class="mobile">
-    <div :class="`mobile__images`">
-      <Img v-for="(img, i) in images" :key="i" class="mobile__images-image" :path="`${project.slug}/${img}`" @load="(e) => _imageLoaded(e, i)" :mobile="true" />
+    <div :class="`mobile__images step--${visibleIndex}`">
+      <Img class="mobile__image--dummy" :path="`${project.slug}/${images[0]}`" :mobile="true" />
+      <Img v-for="(img, i) in readyImages" :key="i" class="mobile__image" :path="`${project.slug}/${img}`" @load="(e) => _imageLoaded(e, i)" :mobile="true" />
     </div>
     <div class="mobile__live" v-html="url"></div>
   </div>
@@ -17,11 +18,18 @@ export default {
   },
   data () {
     return {
+      loadingIndex: 1,
+      loadedImageIndexes: [],
+      visibleIndex: 1,
+      paused: false
     }
   },
   computed: {
     images () {
       return this.project.images || []
+    },
+    readyImages () {
+      return this.images.slice(0, this.loadingIndex)
     },
     url () {
       if (this.project.url) {
@@ -33,12 +41,22 @@ export default {
       return ''
     }
   },
+  mounted () {
+    this.startTimer()
+  },
   methods: {
-    imageSrc (img) {
-      return require(`@/assets/projects/${this.project.slug}/${img}/IMG_1125.jpg`)
+    _imageLoaded (e, i) {
+      this.loadedImageIndexes.push((i + 1))
+      this.loadingIndex++
     },
-    imageSrcset (img) {
-      return this.sizes.map(size => `${require(`@/assets/projects/${this.project.slug}/${img}/IMG_${size}.jpg`)} ${size}w`)
+    startTimer () {
+      window.setInterval(() => {
+        if (this.visibleIndex < this.loadedImageIndexes.length && this.loadedImageIndexes.includes(this.visibleIndex + 1)) {
+          this.visibleIndex++
+        } else if (this.visibleIndex === this.images.length) {
+          this.visibleIndex = 1
+        }
+      }, 4000)
     }
   }
 }
@@ -50,13 +68,12 @@ export default {
   max-height: 75vh;
   width: 100%;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  color: white;
   text-align: center;
   @media (min-width: $xl) {
-    height: 50vh;
+    height: 75vh;
     flex-direction: column;
     justify-content: center;
   }
@@ -66,10 +83,53 @@ export default {
     background-color: transparent;
     display: block;
     margin-bottom: vr(0.5);
+    order: 2;
+    @media (min-width: $xl) {
+      order: 1;
+      position: relative;
+    }
+  }
+  &__image {
+    width: 100%;
+    height: auto;
+    margin-bottom: vr(0.5);
+    @media (min-width: $xl) {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: auto;
+      height: 100%;
+      margin-bottom: 0;
+      opacity: 0;
+      transform: translateX(calc(-50% + #{$vr}));
+      transition: all 300ms ease-in;
+      @for $i from 1 through 8 {
+        &:nth-child(#{$i + 1}) {
+          z-index: #{($i * -1) + 9};
+        }
+        .step--#{$i} &:nth-child(#{$i + 1}) {
+          opacity: 1;
+          transform: translateX(-50%);
+          transition-delay: 300ms;
+        }
+      }
+    }
+    &--dummy {
+      display: none;
+      @media (min-width: $xl) {
+        display: block;
+        position: relative;
+        visibility: hidden;
+      }
+    }
   }
   &__live {
     line-height: 1.45;
     margin-bottom: vr(0.5);
+    order: 1;
+    @media (min-width: $xl) {
+      order: 2;
+    }
   }
 }
 </style>

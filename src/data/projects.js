@@ -28,7 +28,7 @@ module.exports = [
       'App Store': 'https://itunes.apple.com/gb/app/sheffield-christmas-trail/id1436841953'
     },
     images: [
-      'splash'
+      'intro', 'list', 'clue', 'hint', 'scan', 'success'
     ]
   },
   {
@@ -52,6 +52,9 @@ module.exports = [
       'Firebase for realtime backend',
       'Reactive Vuexfire bindings for instant client data alterations',
       'Local HTTP demon to stream map tiles from disk without data connection'
+    ],
+    images: [
+      'map', 'log', 'monument'
     ]
   },
   {
@@ -132,5 +135,12 @@ module.exports = [
     images: [
       'home', 'menu', 'course', 'employers'
     ]
+  },
+  {
+    title: 'Crooked',
+    slug: false,
+    desc: 'Static illustrations come to life',
+    year: '2016',
+    role: 'CSS'
   }
 ]

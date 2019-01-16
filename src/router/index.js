@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import Home from '@/views/Home.vue'
-import Project from '@/views/Project.vue'
+const Project = () => import('@/views/Project.vue')
 
 Vue.use(VueRouter)
 

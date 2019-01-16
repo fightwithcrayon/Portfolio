@@ -74,7 +74,6 @@ export default {
       if (this.loadedIndex.includes(i)) return
       this.loadedIndex.push(i) // In true Safari form, bug keeps firing loaded event. This way we stop it constantly loading Sprites – and a huge memory leak!
       let src = (e.target.currentSrc) ? e.target.currentSrc : e.target.src
-      console.log('Image loaded', src)
       let sprite = new Sprite.fromImage(src) /* eslint-disable-line */
       sprite.name = this.loaded.length
       sprite.width = this.$refs.frame.clientWidth
@@ -123,7 +122,6 @@ export default {
           transparent: true,
           forceFXAA: true
         })
-        console.log(frame, this.height)
       }
       this.app.renderer.autoResize = true
       this.transition.blur = new Filters.BlurFilter()
@@ -285,7 +283,6 @@ export default {
 
 <style lang="scss">
 .rotator {
-  border: 1px solid white;
   @media (min-width: $xl) {
     position: absolute;
     top: 0;
@@ -296,10 +293,10 @@ export default {
   &__image {
     width: 100%;
     background-color: transparent;
-    padding-top: 56.25%;
     display: block;
     margin: 0 0 vr(0.5);
     @media (min-width: $xl) {
+      padding-top: 56.25%;
       position: absolute;
       top: 0;
       left: 0;
@@ -316,7 +313,6 @@ export default {
     line-height: 1.45;
     margin-bottom: vr(1);
     width: 100%;
-    border: 1px solid white;
     @media (min-width: $xl) {
       text-align: right;
       margin: vr(-0.5) vr(-1) 0 0;

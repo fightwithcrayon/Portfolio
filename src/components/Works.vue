@@ -55,21 +55,17 @@ export default {
 .works {
   display: table;
   width: 100%;
-  border: 1px solid white;
   -ms-grid-row: 3;
   &__row {
-    color: rgba(0,0,0,0);
     display: table-row;
     height: vr(1.5);
     cursor: pointer;
     opacity: 0.4;
-    border: 1px solid white;
     &:hover {
       opacity: 1;
     }
     &-cell {
       display: table-cell;
-      border: 1px solid white;
       //vertical-align: middle;
       p, h2 {
         display: inline-block;
