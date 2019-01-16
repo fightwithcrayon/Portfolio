@@ -1,8 +1,5 @@
 <template>
-  <transition name="index" mode="out-in" @after-leave="beforeEnter"
-    appear-class="appear"
-    appear-to-class="appear-to"
-    appear-active-class="appear-active" appear>
+  <transition name="index" mode="out-in" @after-leave="beforeEnter" appear>
     <div class="home test index-leave-active index-leave-t">
       <Nav class="home__nav" />
       <Bio class="home__bio"/>

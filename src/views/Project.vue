@@ -1,9 +1,6 @@
 <template>
   <transition name="fade" mode="out-in"
-    @after-enter="_afterEnter" @after-appear="_afterEnter"
-    appear-class="appear"
-    appear-to-class="appear-to"
-    appear-active-class="appear-active" appear>
+    @after-enter="_afterEnter" @after-appear="_afterEnter">
     <div class="project">
       <Nav class="project__nav" :child="project.title" />
       <div class="project__info" v-html="info"></div>
@@ -130,15 +127,6 @@ export default {
   box-shadow: none;
   width: 100%;
   height: 100vh;
-}
-.appear {
-  background-color: red;
-}
-.appear-to {
-  background-color: yellow;
-}
-.appear-active {
-  transition: background-color 10ms linear 0s;
 }
 .fade-enter-active {
   transition: opacity 300ms linear 1800ms;

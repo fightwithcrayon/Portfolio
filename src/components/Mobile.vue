@@ -42,15 +42,14 @@ export default {
       return ''
     }
   },
-  mounted () {
-    this.startTimer()
-  },
   methods: {
     _imageLoaded (e, i) {
       this.loadedImageIndexes.push((i + 1))
       this.loadingIndex++
+      if (i === 0) this.startTimer()
     },
     startTimer () {
+      this.imageStepper()
       this.timer = window.setInterval(this.imageStepper, 4000)
     },
     imageStepper () {

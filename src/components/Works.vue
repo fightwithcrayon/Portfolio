@@ -2,7 +2,7 @@
   <div class="works">
     <div
       v-for="(project, i) in projects" :key="i" :ref="i"
-      :class="`works__row ${selected === i ? 'works__row--active' : ''} ${!project.slug ? 'works__row--disabled' : ''}`"
+      :class="`works__row works__row--child${i} ${selected === i ? 'works__row--active' : ''} ${!project.slug ? 'works__row--disabled' : ''}`"
       :style="`${selected === i ? `--offsetTop: -${pinnedAt.top}px; top: ${pinnedAt.top}px; left: ${pinnedAt.left}px;` : ''}`"
       @click="goTo(project.slug, i)">
       <h2 class="works__row-cell work__title" v-html="staggerOutput(project.title)" />

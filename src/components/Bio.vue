@@ -21,6 +21,7 @@ export default {
 <style lang="scss">
 .bio {
   -ms-grid-row: 2;
+  color: rgba(0,0,0,0);
   @media (min-width: $md) {
     padding-right: 20%;
   }
