@@ -1,6 +1,6 @@
 <template>
   <div class="bio">
-    <p class="bio__paragraph">Andrew is a UK based developer. He has produced creative, yet <span class="bio__emphasis">highly performant</span>, projects for international corporations, consumer brands, regional governments, and visual artists.</p>
+    <p class="bio__paragraph">Andrew is a UK based developer. He has produced creative, yet <span class="bio__emphasis">highly performant</span>, projects for consumer brands, visual artists, and regional governments.</p>
     <p class="bio__paragraph">Co-founded award-winning culture site Crack in the Road in 2010.</p>
     <div class="bio__contact">
       <div class="bio__contact-heading">Get in touch:</div>
@@ -21,7 +21,6 @@ export default {
 <style lang="scss">
 .bio {
   -ms-grid-row: 2;
-  color: rgba(0,0,0,0);
   @media (min-width: $md) {
     padding-right: 20%;
   }
