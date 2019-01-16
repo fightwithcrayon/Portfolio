@@ -21,6 +21,7 @@ export default {
   flex-direction: row;
   margin-bottom: vr(1);
   height: min-content;
+  user-select: none;
   &__crumb-active {
     @include link_underline;
   }

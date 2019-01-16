@@ -56,14 +56,12 @@ export default {
   display: table;
   width: 100%;
   -ms-grid-row: 3;
+  user-select: none;
   &__row {
     display: table-row;
     height: vr(1.5);
     cursor: pointer;
     opacity: 0.4;
-    &:hover {
-      opacity: 1;
-    }
     &-cell {
       display: table-cell;
       //vertical-align: middle;
@@ -89,6 +87,16 @@ export default {
         }
       }
     }
+  }
+}
+.home:not(.index-enter-active) {
+  .works__row:hover {
+    opacity: 1;
+  }
+  .works__row--disabled:hover {
+    opacity: 0.2;
+    cursor: default;
+    cursor: not-allowed;
   }
 }
 .work {
@@ -132,10 +140,6 @@ export default {
     left: 0;
     top: 0;
   }
-}
-.works__row--disabled:hover {
-  opacity: 0.4;
-  cursor: default;
 }
 
 .index-leave-active {
