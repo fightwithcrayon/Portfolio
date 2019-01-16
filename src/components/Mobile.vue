@@ -99,6 +99,8 @@ export default {
     @media (min-width: $xl) {
       order: 1;
       position: relative;
+      display: flex;
+      flex: 0 0 auto;
     }
   }
   &__image {
