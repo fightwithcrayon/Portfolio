@@ -100,6 +100,7 @@ export default {
     left: vr(1);
     right: vr(1);
   }
+  .nav,
   .home__bio,
   .home__np,
   .works__row {
@@ -107,6 +108,9 @@ export default {
     @include target_ie11 () {
       transition: none;
     }
+  }
+  .nav {
+    transition-delay: 100ms;
   }
   .works__row {
     @for $i from 1 through 10 {
@@ -117,6 +121,7 @@ export default {
   }
 }
 .index-enter {
+  .nav,
   .home__bio,
   .home__np,
   .works__row {
