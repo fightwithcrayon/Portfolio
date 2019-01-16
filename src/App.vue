@@ -35,8 +35,14 @@ body, html, h1, h2, h3, h4, h5, h6, p, ul li, a {
 :root {
   // Not mobile first approach, but post-css custom properties support for MQs is still only a pull request. IE11 main beneficary of that, prioritise desktop font size
   --font-size: 20px;
+  @media(min-width: 1920px) {
+    --font-size: 22px;
+  }
   @media(max-width: $sm) {
     --font-size: 18px;
+  }
+  @media(max-width: $xs) {
+    --font-size: 16px;
   }
 }
 body {
