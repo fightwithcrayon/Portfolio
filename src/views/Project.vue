@@ -131,7 +131,7 @@ export default {
 }
 .appear-enter-active,
 .fade-enter-active {
-  transition: opacity 300ms ease-in 1800ms;
+  transition: opacity 300ms ease-in 2000ms;
   @include target_ie11 {
     transition: none;
   }
