@@ -1,5 +1,5 @@
 <template>
-  <div :class="`image ${loaded && 'image--loaded'} ${visible && 'image--visible'} ${mobile ? 'image--mobile' : 'mobile--desktop'}`" v-observe-visibility="{callback: _onVisible, once: true}">
+  <div :class="`image ${loaded && 'image--loaded'} ${visible && 'image--visible'} ${mobile ? 'image--mobile' : 'image--desktop'}`" v-observe-visibility="{callback: _onVisible, once: true}">
     <img class="image__img" :src="imageSrc" :srcset="imageSrcset" @load="_onLoad" :sizes="mobile ? '(min-width: 1080px) 25vw, 100vw' : '(min-width: 1080px) 50vw, 100vw'" />
   </div>
 </template>

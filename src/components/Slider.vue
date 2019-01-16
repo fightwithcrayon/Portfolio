@@ -293,10 +293,10 @@ export default {
   &__image {
     width: 100%;
     background-color: transparent;
-    padding-top: 56.25%;
     display: block;
     margin: 0 0 vr(0.5);
     @media (min-width: $xl) {
+      padding-top: 56.25%;
       position: absolute;
       top: 0;
       left: 0;
