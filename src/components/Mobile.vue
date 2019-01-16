@@ -20,8 +20,9 @@ export default {
     return {
       loadingIndex: 1,
       loadedImageIndexes: [],
-      visibleIndex: 1,
-      paused: false
+      visibleIndex: 0,
+      paused: false,
+      timer: false
     }
   },
   computed: {
@@ -50,13 +51,25 @@ export default {
       this.loadingIndex++
     },
     startTimer () {
-      window.setInterval(() => {
-        if (this.visibleIndex < this.loadedImageIndexes.length && this.loadedImageIndexes.includes(this.visibleIndex + 1)) {
-          this.visibleIndex++
-        } else if (this.visibleIndex === this.images.length) {
-          this.visibleIndex = 1
-        }
-      }, 4000)
+      this.timer = window.setInterval(this.imageStepper, 4000)
+    },
+    imageStepper () {
+      if (this.visibleIndex < this.loadedImageIndexes.length && this.loadedImageIndexes.includes(this.visibleIndex + 1)) {
+        this.visibleIndex++
+      } else if (this.visibleIndex === this.images.length) {
+        this.visibleIndex = 1
+      } else {
+        this.paused = true
+        window.clearInterval(this.timer)
+      }
+    }
+  },
+  watch: {
+    paused: function (newVal, oldVal) {
+      if (oldVal === true && newVal === false) {
+        this.imageStepper()
+        this.startTimer()
+      }
     }
   }
 }
