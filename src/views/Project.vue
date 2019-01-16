@@ -1,5 +1,5 @@
 <template>
-  <transition name="fade" mode="out-in"
+  <transition :name="transition" mode="out-in"
     @after-enter="_afterEnter" @after-appear="_afterEnter">
     <div class="project">
       <Nav class="project__nav" :child="project.title" />
@@ -26,7 +26,8 @@ export default {
   },
   data () {
     return {
-      pageReady: false
+      pageReady: false,
+      transition: window.transition
     }
   },
   computed: {
@@ -128,8 +129,9 @@ export default {
   width: 100%;
   height: 100vh;
 }
+.appear-enter-active,
 .fade-enter-active {
-  transition: opacity 300ms linear 1800ms;
+  transition: opacity 300ms ease-in 1800ms;
   @include target_ie11 {
     transition: none;
   }
@@ -142,14 +144,38 @@ export default {
     left: vr(1);
     right: vr(1);
   }
+  .project__nav {
+    transition: opacity 1ms ease-in 1800ms;
+    @include target_ie11 {
+      transition: none;
+    }
+  }
   .project__info,
   .project__visual,
   .project__notes {
-    transition: opacity 300ms linear 2000ms;
+    transition: opacity 300ms ease-in 2000ms;
+    @include target_ie11 {
+      transition: none;
+    }
   }
 }
+.appear-enter-active {
+  transition-delay: 0s;
+  .project__nav {
+    transition-duration: 300ms;
+    transition-delay: 100ms;
+  }
+  .project__info,
+  .project__visual,
+  .project__notes {
+    transition-delay: 500ms;
+  }
+}
+.appear-enter,
 .fade-enter {
-  opacity: 0;
+  .project__nav {
+    opacity: 0;
+  }
   .project__info,
   .project__visual,
   .project__notes {
@@ -157,7 +183,7 @@ export default {
   }
 }
 .fade-leave-active {
-  transition: opacity 300ms linear;
+  transition: opacity 300ms ease-out;
   @include target_ie11 {
     transition: none;
   }
@@ -173,7 +199,7 @@ export default {
   .project__info,
   .project__visual,
   .project__notes {
-    transition: opacity 300ms linear;
+    transition: opacity 300ms ease-out;
   }
 }
 .fade-leave-to {

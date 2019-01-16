@@ -20,6 +20,10 @@ export default {
   components: {
     Bio, Nav, NowPlaying, Works
   },
+  mounted () {
+    // Weird bug is stopping "appear" directive from working on project transition. Workaround
+    window.transition = 'fade'
+  },
   methods: {
     customHook () {
       console.log('hook fired')

@@ -9,6 +9,8 @@ require('intersection-observer')
 
 Vue.config.productionTip = false
 
+window.transition = 'appear'
+
 new Vue({
   router,
   render: h => h(App)
