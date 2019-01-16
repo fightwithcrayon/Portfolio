@@ -5,7 +5,26 @@
 <script>
 
 export default {
-  name: 'App'
+  name: 'App',
+  mounted () {
+    this.log()
+  },
+  methods: {
+    log () {
+      let httpRequest = new XMLHttpRequest()
+      if (httpRequest) {
+        httpRequest.open('POST', `https://us-central1-portfolio-916df.cloudfunctions.net/ping?page=${this.$route.path}`)
+        httpRequest.send()
+      }
+    }
+  },
+  watch: {
+    $route (to, from) {
+      if (to.path !== from.path) {
+        this.log()
+      }
+    }
+  }
 }
 </script>
 
