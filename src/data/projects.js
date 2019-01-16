@@ -135,12 +135,5 @@ module.exports = [
     images: [
       'home', 'menu', 'course', 'employers'
     ]
-  },
-  {
-    title: 'Crooked',
-    slug: false,
-    desc: 'Static illustrations come to life',
-    year: '2016',
-    role: 'CSS'
   }
 ]
