@@ -10,7 +10,7 @@ export default {
     this.log()
   },
   methods: {
-    log () {
+    async log () {
       let httpRequest = new XMLHttpRequest()
       if (httpRequest) {
         httpRequest.open('POST', `https://us-central1-portfolio-916df.cloudfunctions.net/ping?page=${this.$route.path}`)

@@ -14,8 +14,16 @@
     ],
     "rewrites": [
       {
-        "source": "**",
+        "source": "/project",
         "destination": "/index.html"
+      },
+      {
+        "source": "/project/**",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/ping",
+        "function": "ping"
       }
     ],
     "headers": [
