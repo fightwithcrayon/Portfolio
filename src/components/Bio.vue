@@ -29,6 +29,7 @@ export default {
   }
   @media (min-width: $xl) {
     padding-right: 20%;
+    max-width: $md;
   }
   &__paragraph {
     margin-bottom: vr(0.5);
