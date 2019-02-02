@@ -19,7 +19,6 @@ module.exports = [
       `Ran from 24th November – 24th December 2018`
     ],
     notes: [
-      `Commissioned by the City of Sheffield's BID group, the Christmas Trail app brings to life a series of local characters in order to guide children on a treasure hunt across the city.`,
       `Sub-3kb static SVG loaded synchronously for instant visual response. Full animation data loaded asynchronously from local HTTP daemon, then swapped in seamlessly. Prevents delayed page load times on slower devices.`,
       `Instant remote deployment of hot fixes to all users over HTTP, bypassing App Store, and installed on app resume to avoid impacting users who are actively doing trail.`
     ],
