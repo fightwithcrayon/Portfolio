@@ -25,9 +25,6 @@ export default {
     window.transition = 'fade'
   },
   methods: {
-    customHook () {
-      console.log('hook fired')
-    },
     beforeEnter () {
       this.$root.$emit('readyForScroll')
     }
