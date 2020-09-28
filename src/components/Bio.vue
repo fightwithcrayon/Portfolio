@@ -1,7 +1,7 @@
 <template>
   <div class="bio">
-    <p class="bio__paragraph">Andrew is a UK based developer. He has produced creative, yet highly performant, projects for consumer brands, visual artists, and regional governments.</p>
-    <p class="bio__paragraph">Co-founded award-winning culture site Crack in the Road in 2010.</p>
+    <p class="bio__paragraph">Andrew is an English developed based in Amsterdam.</p>
+    <p class="bio__paragraph">Currently Senior Developer for <a href="https://random.studio/">Random Studio</a>.</p>
     <div class="bio__contact">
       <div class="bio__contact-heading">Get in touch:</div>
       <a class="bio__link" href="mailto:contact@andrewthomashill.co.uk">English</a> /

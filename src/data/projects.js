@@ -1,10 +1,18 @@
 module.exports = [
   {
+    title: 'Random Studio',
+    slug: false,
+    desc: 'Experiences that trigger a sense of wonder',
+    year: '2019-',
+    role: 'Experiential',
+    url: false
+  },
+  {
     title: 'Black Eye Project',
     slug: false,
-    desc: 'In Development',
-    year: '2019',
-    role: 'React',
+    desc: 'Sheffield based Creative agency',
+    year: '2017-19',
+    role: 'Developer',
     url: false
   },
   {
