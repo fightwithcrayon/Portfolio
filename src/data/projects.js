@@ -2,7 +2,7 @@ module.exports = [
   {
     title: 'Random Studio',
     slug: false,
-    desc: 'Experiences that trigger a sense of wonder',
+    desc: 'Experience design studio.',
     year: '2019-',
     role: 'Experiential',
     url: false
