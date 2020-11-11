@@ -1,6 +1,6 @@
 <template>
   <div class="bio">
-    <p class="bio__paragraph">Andrew is an English developed based in Amsterdam.</p>
+    <p class="bio__paragraph">Andrew is an English developer based in Amsterdam.</p>
     <p class="bio__paragraph">Currently Senior Developer for <a href="https://random.studio/">Random Studio</a>.</p>
     <div class="bio__contact">
       <div class="bio__contact-heading">Get in touch:</div>
